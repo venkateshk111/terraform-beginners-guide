@@ -3,10 +3,10 @@ Terraform Demos
 
 ## Terraform Installation
 ### Windows
-Simplest way to install and configure terraform on window is via [chocolatey](https://chocolatey.org/)
+Simplest way to install and configure terraform on windows is via [chocolatey](https://chocolatey.org/)
 
 1. Download and Install Chocolatey Software as highlighted here [https://chocolatey.org/install](https://chocolatey.org/install)
-2. Install terraform via chocolatey using below command or refer here [https://community.chocolatey.org/packages/terraform](https://community.chocolatey.org/packages/terraform)  
+2. Install terraform via chocolatey using below command or refer [https://community.chocolatey.org/packages/terraform](https://community.chocolatey.org/packages/terraform)  
 
     ```
     choco install terraform -y
