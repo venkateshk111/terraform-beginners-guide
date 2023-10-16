@@ -9,7 +9,7 @@
 - Providers are responsible for **translating the Terraform configurations into API calls that create, modify, or delete resources** in the target environment.
 
 - Provider Syntax
-    ```
+    ```hcl
     provider "provider-name" {
         argument1 = "value1"
         argument2 = "value2"
@@ -20,7 +20,7 @@
     ```
 
 - **Example:**
-    ```
+    ```hcl
     provider "aws" {
         region = "us-east-1"
     }
@@ -35,7 +35,7 @@
 - Each resource has a type, a name, and a set of configuration parameters.
 
 - Resource Syntax
-    ```
+    ```hcl
     resource "type" "name" {
     argument1 = "value1"
     argument2 = "value2"
@@ -46,7 +46,7 @@
     ```
 
 - **Example:**
-    ```
+    ```hcl
     resource "aws_instance" "example" {
     ami           = "ami-0c55b159cbfafe1f0"
     instance_type = "t2.micro"
@@ -59,7 +59,7 @@
 - They are ***read-only*** and provide a way to import existing data into your Terraform configuration.
 
 - **Example:**
-    ```
+    ```hcl
     data "aws_ami" "latest_amazon_linux" {
     most_recent = true
     owners      = ["amazon"]
@@ -80,7 +80,7 @@
 - Variables can be declared in a separate file or directly in the main configuration.
 
 - **Example:**
-    ```
+    ```hcl
     variable "aws_region" {
     type    = string
     default = "us-west-2"
@@ -102,7 +102,7 @@
 - They represent the configuration details for a specific resource.
 
 - **Example:**
-    ```
+    ```hcl
     resource "aws_instance" "example" {
         ami           = "ami-0c55b159cbfafe1f0"
         instance_type = "t2.micro"
@@ -115,7 +115,7 @@
 - These are values that you can reference in other parts of your Terraform configuration.
 
 - **Example:**
-    ```
+    ```hcl
     output "instance_id" {
     value = aws_instance.example.id
     }
@@ -131,7 +131,7 @@
 - **Example:**
     - ***count***  
 
-    ```
+    ```hcl
     resource "aws_instance" "example" {
     count         = 2
     ami           = "ami-0c55b159cbfafe1f0"
@@ -142,7 +142,7 @@
 
     - ***depends_on***  
 
-    ```
+    ```hcl
     resource "aws_instance" "web" {
     ami           = "ami-0c55b159cbfafe1f0"
     instance_type = "t2.micro"
