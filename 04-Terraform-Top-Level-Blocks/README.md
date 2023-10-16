@@ -46,4 +46,6 @@
         - Specifies the provider requirements
         - more details here : [https://registry.terraform.io/providers/hashicorp/aws/latest/docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 
-    - **backend** : Specifies the backend configuration for remote state storage. In this case, it's configured to use an S3 bucket as the backend, and you provide the bucket name and key.
+    - **backend** :
+        - Specifies the backend configuration for remote state storage.
+        - In this case, it's configured to use an S3 bucket as the backend, and you provide the bucket name and key.
