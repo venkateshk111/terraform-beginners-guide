@@ -5,7 +5,19 @@
 ### Provider:
 
 - A Terraform provider is a **plugin** that enables Terraform to interact with a specific infrastructure or service provider. 
+
 - Providers are responsible for **translating the Terraform configurations into API calls that create, modify, or delete resources** in the target environment.
+
+- Provider Syntax
+    ```
+    provider "provider-name" {
+        argument1 = "value1"
+        argument2 = "value2"
+        ......... = "......"
+        ......... = "......"
+        argumentn = "valuen"
+    }
+    ```
 
 - **Example:**
     ```
@@ -17,8 +29,21 @@
 
 ### Resource:
 - A resource in Terraform represents **a piece of infrastructure** or a **component** in a specific provider. 
+
 - Resources are the building blocks of your infrastructure, and they are declared in your Terraform configuration. 
+
 - Each resource has a type, a name, and a set of configuration parameters.
+
+- Resource Syntax
+    ```
+    resource "type" "name" {
+    argument1 = "value1"
+    argument2 = "value2"
+    ......... = "......"
+    ......... = "......"
+    argumentn = "valuen"
+    }
+    ```
 
 - **Example:**
     ```
