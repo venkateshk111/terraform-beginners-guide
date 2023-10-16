@@ -26,7 +26,7 @@
     required_providers {
         aws = {
             source = "hashicorp/aws"
-            version = "~>3.11"
+            version = "~> 5.0"
         }
     }
     backend "s3" {
@@ -43,5 +43,6 @@
         - more details here : [https://developer.hashicorp.com/terraform/language/expressions/version-constraints](https://developer.hashicorp.com/terraform/language/expressions/version-constraints)
 
     - **required_providers** : Specifies the provider requirements
+    - more details here : [https://registry.terraform.io/providers/hashicorp/aws/latest/docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 
     - **backend** : Specifies the backend configuration for remote state storage. In this case, it's configured to use an S3 bucket as the backend, and you provide the bucket name and key.
