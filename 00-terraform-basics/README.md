@@ -63,3 +63,4 @@ Simplest way to install and configure terraform on windows is via [chocolatey](h
 ### Mac
 * [Terraform Installation on Mac](https://learn.hashicorp.com/tutorials/terraform/install-cli)
  -->
+
