@@ -124,6 +124,7 @@
 
 ### Meta-Arguments:
 
+- Meta-arguments are terraform specific arguments.  
 - Meta-arguments are used to modify the behavior of resources or define how Terraform should manage certain aspects of the infrastructure. 
 - commonly used meta-arguments : ***count***, ***for_each***, ***depends_on***
 
