@@ -49,3 +49,33 @@
     - **backend** :
         - Specifies the backend configuration for remote state storage.
         - In this case, it's configured to use an S3 bucket as the backend, and you provide the bucket name and key.
+
+### **Provider Block**
+
+![Terraform Provider](./imgs/TerraformProvider.png)
+
+- The provider block is used to **configure the named provider**, 
+    - example : *aws,azure(azurerm), GCP(google), kubernetes*, etc 
+- The **Terraform Provider Block** is used to **define and configure the cloud or infrastructure platform to manage resources**
+- Providers **act as plugins that enable Terraform to interact with cloud providers APIs**.
+- A provider is **responsible for creating and managing resources**. 
+- By default, providers are not installed along with terraform (it’s just exe file), but when you run the command '*terraform init*' the plugins for the providers gets downloaded.
+- Multiple provider blocks can exist if a Terraform configuration is composed of multiple providers, which is a common situation.
+
+
+- Example - AWS Provider Block:
+
+    ```hcl
+    provider "aws" {
+    region = "us-east-1"
+    }
+    ```
+    In this example:
+    - **provider**: The **keyword** to start the provider block.
+    - **aws**: The **name of the provider**. In this case, it's the AWS provider.
+    - **region** = "us-east-1": Configuration parameters for the provider. Here, it **specifies the AWS region** as *us-east-1* and all AWS resources will be configured and managed in this AWS region.
+- more details here : 
+    - [https://registry.terraform.io/browse/providers](https://registry.terraform.io/browse/providers)
+    - [https://www.terraform.io/language/providers](https://www.terraform.io/language/providers )
+    - [https://www.terraform.io/docs/providers/index.html](https://www.terraform.io/docs/providers/index.html)
+    - [https://registry.terraform.io/browse/providers](https://registry.terraform.io/browse/providers)
