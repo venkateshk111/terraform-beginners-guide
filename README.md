@@ -3,7 +3,7 @@
 - ### [00-Terraform-Basics](00-Terraform-Basics) - Terraform Definations and more
 - ### [01-Terraform-Installation](01-Terraform-Installation) - Install Terraform
 
-- ### [02-Terraform-Configaration](01-Terraform-Configaration) - Configure Terraform
+- ### [02-Terraform-Configuration](01-Terraform-Configuration) - Configure Terraform
 
 - ### [03-Terraform-Terminologies](03-Terraform-Terminologies) - Key Terraform Terminologies
     - **provider** : Define the providers like AWS, Azure, GCP
