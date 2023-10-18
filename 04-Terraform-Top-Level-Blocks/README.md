@@ -73,7 +73,7 @@
     In this example:
     - **provider**: The **keyword** to start the provider block.
     - **aws**: The **name of the provider**. In this case, it's the AWS provider.
-    - **region** = "us-east-1": Configuration parameters for the provider. Here, it **specifies the AWS region** as *us-east-1* and all AWS resources will be configured and managed in this AWS region.
+    - **region = "us-east-1"**: Configuration parameters for the provider. Here, it **specifies the AWS region** as *us-east-1* and all AWS resources will be configured and managed in this AWS region.
 - more details here : 
     - [https://registry.terraform.io/browse/providers](https://registry.terraform.io/browse/providers)
     - [https://www.terraform.io/language/providers](https://www.terraform.io/language/providers )
