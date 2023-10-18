@@ -44,6 +44,8 @@
 
     - **required_providers** :
         - Specifies the provider requirements
+        - **aws** : *aws in `aws = { ... }`* is a local name , this can be any name of your choice ex: *myaws*, *awscloud*. Preferred local name is namespace  (*hashicorp/**aws***)
+        - The local name (*aws , myaws, awscloud* ) you mention in **required providers** is the name you should be using in **provider** section later 
         - more details here : [https://registry.terraform.io/providers/hashicorp/aws/latest/docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 
     - **backend** :
