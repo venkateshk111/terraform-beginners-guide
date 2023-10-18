@@ -1,5 +1,5 @@
 # Terraform Top Level Blocks
-- **Terraform Block** or Terraform Settings Block (>0.13 version)
+- **Terraform Block** (>0.13 version) or Terraform Settings Block or Terraform Configuration Block
 - **Provider Block**
 - **Resource Block**
 - **Input Variables Block**
