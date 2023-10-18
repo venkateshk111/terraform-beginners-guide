@@ -20,7 +20,7 @@ Terraform is an open-source Infrastructure as Code (IaC) tool developed by Hashi
 
 **Key Concepts:**
 
-- **Configuration files** describe to Terraform the components needed to run a single application or your entire datacenter.
+- **Configuration files** describe to Terraform the components needed to run a single application or your entire data center.
 
 - **Execution plan:** Terraform generates an execution plan describing what it will do to reach the desired state, and then executes it to build the described infrastructure.
 

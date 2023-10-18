@@ -12,7 +12,7 @@
 
 - Terraform block is used to specify various **settings that apply to the entire Terraform project**
 - It allows you to **configure global settings** and features.
-- Special block used to configure some **behaviours of Terraform** itself
+- Special block used to configure some **behaviors of Terraform** itself
 - You define
     - Required **terraform version**
     - **Provider** requirements
