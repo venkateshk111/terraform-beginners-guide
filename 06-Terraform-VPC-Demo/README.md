@@ -61,16 +61,20 @@ provider "aws" {
   #### Deploy AWS Resources 
   *`terraform apply`*  
   or  
-  *`terraform apply -auto-approve`* (if you want to avoid the prompt)
+  *`terraform apply -auto-approve`* (if you want to avoid the prompt) NOT Recommended for beginners 
 
 ### Step-05: Clean-Up
   #### Destroy Terraform Resources
-  *`terraform destroy -auto-approve`*
+  *`terraform destroy`*  
+  or  
+  *`terraform destroy -auto-approve`* (if you want to avoid the prompt) NOT Recommended for beginners
 
   #### Delete Terraform Files from current directory
+  
   ##### Linux
   *`rm -rf .terraform*`*  
   *`rm -rf terraform.tfstate*`*
+
   ##### Windows:
   Delete the lock file *.terraform** and state file *terraform.tfstate* files from the folder
 
