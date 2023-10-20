@@ -27,3 +27,13 @@
 - ### [06-Terraform-VPC-Demo](06-Terraform-VPC-Demo) - Simple Demo to Create AWS VPC using Terraform
 
 
+
+- #### Pending Notes
+    - 02-Terraform-Configuration
+    - 05-Terraform-Commands
+    - 04-Terraform-Top-Level-Blocks
+        - Multiple Providers
+    
+- #### Revise following
+    - terraform dependency file ?
+    - terraform lock file ?
