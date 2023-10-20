@@ -39,10 +39,10 @@ provider "aws" {
 ### Step 03: Authenticate to AWS via IAM Credentials
 
 - [Terraform AWS Authentication Types](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication) 
-    - Static Credentials - You can use this under *provider* section, but its NOT A RECOMMENDED Option
-    - Environment variables - Recommended Option (example below)
-    - IAM credentials stored locally (configuration file $HOME/.aws/credentials)
-    - use *`aws configure`* to configure the aws credentials
+    - **Static Credentials** - You can use this under *provider* section, but its NOT A RECOMMENDED Option
+    - **Environment variables** - Recommended Option (example below)
+    - **IAM credentials** stored locally (configuration file $HOME/.aws/credentials)
+      - use *`aws configure`* to configure the aws credentials
 
 - Using Environment variables via PowerShell
     - ![AWS Authentication via Environment variables](imgs/TFAwsAuth.png)
@@ -70,7 +70,7 @@ provider "aws" {
   *`terraform destroy -auto-approve`* (if you want to avoid the prompt) NOT Recommended for beginners
 
   #### Delete Terraform Files from current directory
-  
+
   ##### Linux
   *`rm -rf .terraform*`*  
   *`rm -rf terraform.tfstate*`*
