@@ -44,7 +44,7 @@ provider "aws" {
     - **IAM credentials** stored locally (configuration file $HOME/.aws/credentials)
       - use *`aws configure`* to configure the aws credentials
 
-- Using Environment variables via PowerShell
+- Example : Using **Environment variables** via PowerShell
     - ![AWS Authentication via Environment variables](imgs/TFAwsAuth.png)
 
 ### Step 04: Execute Terraform Commands
