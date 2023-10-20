@@ -1,6 +1,6 @@
 # Terraform
 
-- ### [00-Terraform-Basics](00-Terraform-Basics) - Terraform Definations and more
+- ### [00-Terraform-Basics](00-Terraform-Basics) - Terraform Definitions and more
 - ### [01-Terraform-Installation](01-Terraform-Installation) - Install Terraform
 
 - ### [02-Terraform-Configuration](01-Terraform-Configuration) - Configure Terraform
@@ -23,6 +23,13 @@
     - **Local Values Block**
     - **Data Sources Block**
     - **Modules Block**
+
+- ### [05-Terraform-Commands](05-Terraform-Commands) - Basic Terraform Commands
+    - *`terraform init`*
+    - *`terraform validate`*
+    - *`terraform plan`*
+    - *`terraform apply`* or *`terraform apply -auto-approve`*
+    - *`terraform destroy`* or *`terraform destroy -auto-approve`*
 
 - ### [06-Terraform-VPC-Demo](06-Terraform-VPC-Demo) - Simple Demo to Create AWS VPC using Terraform
 
