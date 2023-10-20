@@ -3,6 +3,5 @@ resource "aws_vpc" "appvpc" {
 
     tags = {
       Name = "myapp-vpc"
-      terraform = "true"
     }
 }

@@ -3,36 +3,43 @@
 
 ### Step 01 : Create a file 00_provider.tf file to include terraform and provider block
 
-```hcl
-terraform {
-  required_providers {
-    aws = {
-     source = "hashicorp/aws"
-     version = "~> 5.0"
+  ```hcl
+  terraform {
+    required_providers {
+      aws = {
+      source = "hashicorp/aws"
+      version = "~> 5.0"
+      }
     }
   }
-}
 
-provider "aws" {
-    region = "us-east-1"  
-}
-```
+  provider "aws" {
+      region = "us-east-1"
+
+      default_tags {
+        tags = {
+          terraform = "yes"
+          project = "terraform-learning"
+        }
+      }
+  }
+  ```
+
 [00_provider.tf](00_provider.tf)
 
 ### Step 02: Create a file 01_vpc.tf to create resource block to create AWS VPC
 
 - [Terraform AWS VPC Resource](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc)
 
-    ```hcl
-    resource "aws_vpc" "appvpc" {
-        cidr_block = "10.0.0.0/16"
+  ```hcl
+  resource "aws_vpc" "appvpc" {
+      cidr_block = "10.0.0.0/16"
 
-        tags = {
+      tags = {
         Name = "myapp-vpc"
-        terraform = "true"
-        }
-    }
-    ```
+      }
+  }
+  ```
 
 [01_vpc.tf](01_vpc.tf)
 
