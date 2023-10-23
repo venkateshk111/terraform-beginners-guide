@@ -3,7 +3,7 @@ resource "aws_instance" "example" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "Linux2023"
+    Name  = "Linux2023"
     Owner = "Venkatesh"
   }
 }

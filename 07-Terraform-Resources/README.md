@@ -120,21 +120,19 @@ Terraform resource behaviors refer to,
 
 - Execute Terraform commands to understand resource behavior
 
-    1. Initialize terraform  
-        - ***`terraform init`***
-         ![terraform init](./imgs/02-tf-init.png)
-        - On executing initialization terraform downloads the plugin for provider (in our case AWS) under ***.terraform*** folder in the current directory
-         ![terraform plugin](./imgs/03-tf-provider-plugin.png)
+    1. ***`terraform init`*** : *Initialize* terraform
+        - The `terraform init` command is used to **initialize a Terraform configuration**. 
+        - It sets up the necessary components and dependencies for Terraform to manage your infrastructure.
+        - **Downloading Providers and Modules:** On executing `terraform init` command terraform downloads the plugin for provider (in our case AWS) under ***.terraform*** folder in the current directory
+            ![terraform plugin](./imgs/03-tf-provider-plugin.png)
+        - **Locking and Tracking Dependencies:** Terraform also creates a ***terraform.lock.hcl*** file to track provider and module versions.
+            ![terraform lock](./imgs/04-tf-lock-file.png)
 
-        - Terraform also creates lock file named ***".terraform.lock.hcl"***
-         ![terraform lock](./imgs/04-tf-lock-file.png)
-
-    2. Validate terraform code
-        - ***`terraform validate`***
+    2. ***`terraform validate`*** : *Validate* terraform code
         - **Validate the configuration files** in a directory
         - Validate runs checks that verify whether a configuration is **syntactically valid and internally consistent**
         - Primarily useful for general verification of reusable modules, including correctness of attribute names and value types.
-        - It is safe to run this command automatically
+        - It is **safe to run this command** automatically
         - Validation **requires an initialized working directory** (*terraform init*) with any referenced plugins and modules installed
         - Example : 
             - terraform validate with error statements to correct
@@ -143,12 +141,20 @@ Terraform resource behaviors refer to,
             - terraform validate with no errors
             ![terraform validate success](./imgs/05-tf-validate-success.png)
 
-    3. format terraform code
-        - ***`terraform fmt`***
-    4. Review the terraform plan
-        - ***`terraform plan`***
-    5. Create Resources by terraform
-        - ***`terraform apply`***
+    3. ***`terraform fmt`*** : *format* terraform code
+        - The `terraform fmt` command is used to **automatically format Terraform configuration files**, promoting consistent coding style and improved readability.
+        - **Formatting:** It standardizes the indentation, line breaks, and element ordering in your configuration files.
+        - **Syntax Rules:** Enforces Terraform's syntax rules, ensuring proper indentation and formatting
+        - **Comments:** Doesn't alter comments but ensures they are consistently styled.
+        - It reformats files without changing the content or functionality of your configuration and is **save to run the command anytime**
+        - when *`terraform fmt`* is executed, it lists the files that it formatted, if no files listed it means all files are well formatted.
+            ![terraform format](./imgs/06-tf-fmt.png)
+
+
+    4. ***`terraform plan`*** : *Review* the terraform plan
+        - `terraform plan`
+    5. ***`terraform apply`*** : *Create* Resources by terraform
+        - `terraform apply`
 
 
 
