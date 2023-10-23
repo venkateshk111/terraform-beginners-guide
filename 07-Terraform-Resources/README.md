@@ -159,10 +159,10 @@ Terraform resource behaviors refer to,
         - **Validation:** Validates (*`terraform validate`*) your configuration for syntax errors and inconsistencies before applying changes.
         - **Dry Run:** `terraform plan` is a "dry run" command; it **shows proposed changes without applying them**.
         - Its **safe to execute** this command
-        - `terraform plan` will require you to have your [AWS credentials](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication) set and you are able to connect/access your AWS infrastructure. You will receive below error, when AWS cred are not set  
+        - `terraform plan` will require you to have your [AWS Credentials](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication) set and you are able to connect/access your AWS infrastructure. You will receive below error, when AWS cred are not set  
             *Error: No valid credential sources found* 
             ![terraform plan error](./imgs/07-tf-plan-error.png)
-        - setup [AWS credentials](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication) using your preferred methods
+        - setup [AWS Credentials](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication) using your preferred methods
             ![terraform plan error](./imgs/08-tf-aws-cred.png)
         - Example of `terraform plan`
             ![terraform plan error](./imgs/09-tf-aws-plan1.png)
