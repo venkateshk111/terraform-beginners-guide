@@ -152,7 +152,23 @@ Terraform resource behaviors refer to,
 
 
     4. ***`terraform plan`*** : *Review* the terraform plan
-        - `terraform plan`
+        - The `terraform plan` command is used to **create an execution plan** for your Terraform configuration, **showing the changes Terraform will make** to your infrastructure.
+        - **Plan Infrastructure Changes:** Compares the current state of your infrastructure to the desired state and plans the necessary changes.
+        - **Output Summary:** **Provides a human-readable summary of the planned changes**, including **creation, modification**, and **destruction** of resources.
+        - **Detailed Information:** Offers detailed information about planned changes, resource modifications, and dependencies.
+        - **Validation:** Validates (*`terraform validate`*) your configuration for syntax errors and inconsistencies before applying changes.
+        - **Dry Run:** `terraform plan` is a "dry run" command; it **shows proposed changes without applying them**.
+        - Its **safe to execute** this command
+        - `terraform plan` will require you to have your [AWS credentials](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication) set and you are able to connect/access your AWS infrastructure. You will receive an error, *Error: No valid credential sources found* when AWS cred are not set
+            ![terraform plan error](./imgs/07-tf-plan-error.png)
+        - setup [AWS credentials](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication) using your preferred methods
+            ![terraform plan error](./imgs/08-tf-aws-cred.png)
+        - Example of `terraform plan`
+            ![terraform plan error](./imgs/09-tf-aws-plan1.png)
+            ![terraform plan error](./imgs/09-tf-aws-plan2.png)
+
+
+
     5. ***`terraform apply`*** : *Create* Resources by terraform
         - `terraform apply`
 
