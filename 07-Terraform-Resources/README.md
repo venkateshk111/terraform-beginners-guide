@@ -67,6 +67,7 @@ Terraform resource behaviors refer to,
 
 4. ***Destroy and re-create*** :
    - Terraform will ***destroy and re-create* resources** whose arguments have changed but which cannot be updated in-place due to remote API limitations
+   - Example : Changing Availability zone of an AWS EC2 instance
 
 
 5. ***Dependency Management*** :
