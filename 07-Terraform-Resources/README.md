@@ -107,7 +107,7 @@ Terraform resource behaviors refer to,
     2. Create **Resource (EC2)** block
 
         ```hcl
-        resource "aws_ec2" "example" {
+        resource "aws_instance" "example" {
         ami           = "ami-0df435f331839b2d6"
         instance_type = "t2.micro"
 
@@ -124,12 +124,30 @@ Terraform resource behaviors refer to,
         - ***`terraform init`***
          ![terraform init](./imgs/02-tf-init.png)
         - On executing initialization terraform downloads the plugin for provider (in our case AWS) under ***.terraform*** folder in the current directory
-         ![terraform init](./imgs/03-tf-provider-plugin.png)
+         ![terraform plugin](./imgs/03-tf-provider-plugin.png)
 
         - Terraform also creates lock file named ***".terraform.lock.hcl"***
-         ![terraform init](./imgs/04-tf-lock-file.png)
+         ![terraform lock](./imgs/04-tf-lock-file.png)
 
+    2. Validate terraform code
+        - ***`terraform validate`***
+        - **Validate the configuration files** in a directory
+        - Validate runs checks that verify whether a configuration is **syntactically valid and internally consistent**
+        - Primarily useful for general verification of reusable modules, including correctness of attribute names and value types.
+        - It is safe to run this command automatically
+        - Validation **requires an initialized working directory** (*terraform init*) with any referenced plugins and modules installed
+        - Example : 
+            - terraform validate with error statements to correct
+            ![terraform validate error](./imgs/05-tf-validate-error.png)
+            - terraform validate with no errors
+            ![terraform validate success](./imgs/05-tf-validate-success.png)
 
+    3. format terraform code
+        - ***`terraform fmt`***
+    4. Review the terraform plan
+        - ***`terraform plan`***
+    5. Create Resources by terraform
+        - ***`terraform apply`***
 
 
 
