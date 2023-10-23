@@ -139,6 +139,7 @@ Terraform resource behaviors refer to,
         - Example : 
             - terraform validate with error statements to correct
             ![terraform validate error](./imgs/05-tf-validate-error.png)
+             - In above case, *resource* should be *`aws_instance`* and not *`aws_ec2`* hence *`terraform validate`* will show an error           
             - terraform validate with no errors
             ![terraform validate success](./imgs/05-tf-validate-success.png)
 
