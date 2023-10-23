@@ -31,7 +31,7 @@
 
     }
     ```
-    ![Resource](./imgs/tf-resource.png)
+    ![Resource](./imgs/01-tf-resource.png)
 
     - **`resource`:** The keyword to start a ***resource*** block.
     - **`aws_instance`:** 
@@ -79,6 +79,55 @@ Terraform resource behaviors refer to,
 7. ***State Management*** :
    - Terraform maintains a state file that records the current state of the infrastructure, which is used to plan and apply updates.
 
+### Understanding Terraform Resource Behavior with Example
+- Lets Create an AWS EC2 instance and understand Terraform Resource(EC2) Behavior
+
+    1. Create Terraform **provider** block
+        ```hcl
+        terraform {
+        required_providers {
+            aws = {
+                source = "hashicorp/aws"
+                version = "~-> 5.0"
+            }
+        }
+        }
+
+        provider "aws" {
+            region = "us-east-1"
+
+            default_tags {
+                tags = {
+                terraform = "yes"
+                project = "terraform-learning"
+                }
+            }  
+        }
+        ```
+    2. Create **Resource (EC2)** block
+
+        ```hcl
+        resource "aws_ec2" "example" {
+        ami           = "ami-0df435f331839b2d6"
+        instance_type = "t2.micro"
+
+        tags = {
+            Name = "Linux2023"
+            Owner = "Venkatesh"
+        }
+        }
+        ```
+
+- Execute Terraform commands to understand resource behavior
+
+    1. Initialize terraform  
+        - ***`terraform init`***
+         ![terraform init](./imgs/02-tf-init.png)
+        - On executing initialization terraform downloads the plugin for provider (in our case AWS) under ***.terraform*** folder in the current directory
+         ![terraform init](./imgs/03-tf-provider-plugin.png)
+
+        - Terraform also creates lock file named ***".terraform.lock.hcl"***
+         ![terraform init](./imgs/04-tf-lock-file.png)
 
 
 
