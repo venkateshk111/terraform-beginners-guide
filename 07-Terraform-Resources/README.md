@@ -118,7 +118,7 @@ Terraform resource behaviors refer to,
         }
         ```
 
-- Execute Terraform commands to understand resource behavior
+- Lets Execute Terraform commands to understand resource behavior
 
     1. ***`terraform init`*** : *Initialize* terraform
         - The `terraform init` command is used to **initialize a Terraform configuration**. 
@@ -165,13 +165,39 @@ Terraform resource behaviors refer to,
         - setup [AWS Credentials](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication) using your preferred methods
             ![terraform plan error](./imgs/08-tf-aws-cred.png)
         - Example of `terraform plan`
-            ![terraform plan error](./imgs/09-tf-aws-plan1.png)
-            ![terraform plan error](./imgs/09-tf-aws-plan2.png)
+            ![terraform plan error](./imgs/09-tf-plan1.png)
+            ![terraform plan error](./imgs/09-tf-plan2.png)
 
 
 
     5. ***`terraform apply`*** : *Create* Resources by terraform
-        - `terraform apply`
+        - *`terraform apply`* is like pressing the "**execute**" button for your Terraform configuration. 
+        - It tells Terraform to **create, update, or delete resources in your infrastructure** based on your configuration.
+        - Be vary cautions before you provide approval for  *`terraform apply`* command as it modifies your infrastructure
+        - Lets understand *`terraform apply`* in more detail:
+            1. **Execution:** Terraform **analyzes** your configuration and the current state of your infrastructure to **identify the differences between the desired state and the actual state**.
+            
+            2. **Changes:** Terraform takes action to **make the actual state match the desired state**, which can involve **creating, updating, or deleting resources**. 
+            
+            3. **User Confirmation:** Before making any changes, Terraform shows you a summary of what it's about to do. it can be over-ridden with *auto-approve* 
+            
+            4. **User Approval:** You must confirm by typing "***yes***" when prompted to ensure you're aware of the changes.
+            
+            5. **Execution:** Once you confirm, Terraform executes the changes, and you can see the progress in real-time.
+            
+            6. **Completion:** After applying the changes, Terraform **provides a summary of what was created, updated, or deleted**. It also updates the state file with the current state of your infrastructure.
+        - Example of *`terraform apply`*
+            ![terraform apply](./imgs/10-tf-apply1.png)
+            ![terraform apply](./imgs/10-tf-apply2.png)
+
+        - After you type ***yes*** to *`terraform apply`* prompt terraform will start creating resources mentioned in the *plan*
+            ![terraform apply](./imgs/10-tf-apply3.png)
+        - You should also be able to check on your AWS Console resource (EC2) being created
+            ![terraform apply](./imgs/10-tf-apply4.png)
+        - Once terraform completes the execution you should be able to check on your AWS Console resource (EC2) successfully created.
+            ![terraform apply](./imgs/10-tf-apply5.png)
+ 
+    6. ***`terraform destroy`*** : *destroy or delete* Resources
 
 
 
