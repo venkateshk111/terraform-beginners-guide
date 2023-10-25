@@ -50,8 +50,8 @@ Terraform resource behaviors refer to,
 - How Terraform manages and interacts with resources in your infrastructure. 
 - These behaviors determine how resources are
     - ***created***
+    - ***destroyed*** 
     - ***updated***
-    - ***destroyed***
 
 1. ***Create*** :
    - Terraform attempts to **create resources** in your target infrastructure based on your configuration.
@@ -179,7 +179,7 @@ Terraform resource behaviors refer to,
             
             2. **Changes:** Terraform takes action to **make the actual state match the desired state**, which can involve **creating, updating, or deleting resources**. 
             
-            3. **User Confirmation:** Before making any changes, Terraform shows you a summary of what it's about to do. it can be over-ridden with *auto-approve* 
+            3. **User Confirmation:** Before making any changes, Terraform shows you a summary of what it's about to do. It can be over-ridden with *auto-approve* 
             
             4. **User Approval:** You must confirm by typing "***yes***" when prompted to ensure you're aware of the changes.
             
@@ -190,14 +190,37 @@ Terraform resource behaviors refer to,
             ![terraform apply](./imgs/10-tf-apply1.png)
             ![terraform apply](./imgs/10-tf-apply2.png)
 
-        - After you type ***yes*** to *`terraform apply`* prompt terraform will start creating resources mentioned in the *plan*
+        - After you type ***yes*** to *`terraform apply`* prompt, terraform will start **creating** resources mentioned in the *plan*
             ![terraform apply](./imgs/10-tf-apply3.png)
         - You should also be able to check on your AWS Console resource (EC2) being created
-            ![terraform apply](./imgs/10-tf-apply4.png)
+            ![terraform apply](./imgs/10-tf-apply4-aws.png)
         - Once terraform completes the execution you should be able to check on your AWS Console resource (EC2) successfully created.
             ![terraform apply](./imgs/10-tf-apply5.png)
  
     6. ***`terraform destroy`*** : *destroy or delete* Resources
+        - `terraform destroy` is like the "**off**" switch for your Terraform-managed infrastructure. 
+        - It tells Terraform to **tear down and delete all the resources** in your infrastructure that were created or managed by Terraform.
+        - Lets understand *`terraform destroy`* in more detail:
+            1. **Execution:** Terraform analyzes your configuration and the current state of your infrastructure, just like `terraform apply`.
+            2. **Resource Destruction:** However, instead of creating or updating resources, `terraform destroy` focuses on **destroying and deleting** them.
+            3. **User Confirmation:** Similar to `terraform apply`, it shows you a summary of what it's about to destroy. It can be over-ridden with *auto-approve*. 
+            4. **User Approval:** You must confirm by typing "***yes***" when prompted, ensuring you're aware of the resources that are going to be deleted.
+            5. **Execution:** Once you confirm, Terraform executes the destruction, and you can see the progress in real-time.
+            6. **Completion:** After the resources are destroyed, Terraform **provides a summary of what was deleted**.
+ 
+       - Example of *`terraform destroy`*
+            ![terraform destroy](./imgs/11-tf-destroy1.png)
+            ![terraform destroy](./imgs/11-tf-destroy2.png)
+            ![terraform destroy](./imgs/11-tf-destroy3.png)
+
+        - After you type ***yes*** to *`terraform destroy`* prompt, terraform will start **destroying** resources mentioned in the *plan*
+            ![terraform destroy](./imgs/11-tf-destroy4.png)
+        - You should also be able to check on your AWS Console resource (EC2) being shutting down and getting ready for termination
+            ![terraform destroy](./imgs/11-tf-destroy4-aws.png)
+        - Once terraform completes the execution you should be able to check on your AWS Console resource (EC2) successfully terminated.
+            ![terraform destroy](./imgs/11-tf-destroy5-aws.png)
+
+
 
 
 
