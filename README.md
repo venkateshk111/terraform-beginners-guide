@@ -6,10 +6,10 @@
 - ### [02-Terraform-Configuration](01-Terraform-Configuration) - Configure Terraform
 
 - ### [03-Terraform-Terminologies](03-Terraform-Terminologies) - Key Terraform Terminologies
-    - **provider** : Define the providers like AWS, Azure, GCP
-    - **resource** : Infrastructure Resources to be created, ex: VPC, S3, EC2
+    - **Provider** : Define the providers like AWS, Azure, GCP
+    - **Resource** : Infrastructure Resources to be created, ex: VPC, S3, EC2
     - **Data Sources** (optional) : Pull the data from the provider
-    - **variable**: Give user option to enter the value for defined resources
+    - **Variable**: Give user option to enter the value for defined resources
     - **Arguments** : Inputs
     - **Attributes** : Outputs
     - **Meta-Arguments** : Terraform specific Inputs ex: count, for_each,depends_on
