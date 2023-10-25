@@ -232,5 +232,6 @@ Terraform resource behaviors refer to,
 
 
 ### References :
-- [https://developer.hashicorp.com/terraform/language/resources/syntax](https://developer.hashicorp.com/terraform/language/resources/syntax)
-- [https://developer.hashicorp.com/terraform/language/resources/behavior](https://developer.hashicorp.com/terraform/language/resources/behavior)
+- [Resource Syntax](https://developer.hashicorp.com/terraform/language/resources/syntax)
+- [Resource Behavior](https://developer.hashicorp.com/terraform/language/resources/behavior)
+- [Provisioning Infrastructure with Terraform](https://developer.hashicorp.com/terraform/cli/run)
