@@ -50,6 +50,8 @@
     - 04-Terraform-Top-Level-Blocks
         - Multiple Providers
      - 05-Terraform-Commands
+     - 06-Terraform-VPC-Demo
+        - execute the terraform commands to create VPC using vpc.tf and update the command documentation with screenshots     
      - 07-Terraform-Resources
         - Terraform resource behavior for  in place update (add tag) destroy and recreate (change AZ)
 
