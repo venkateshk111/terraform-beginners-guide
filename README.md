@@ -49,7 +49,9 @@
     - 02-Terraform-Configuration
     - 04-Terraform-Top-Level-Blocks
         - Multiple Providers
-     - 05-Terraform-Commands   
+     - 05-Terraform-Commands
+     - 07-Terraform-Resources
+        - Terraform resource behavior for  in place update (add tag) destroy and recreate (change AZ)
 
 - #### Revise following
     - terraform dependency file ?
