@@ -17,8 +17,8 @@
 
 1. ### ***`count`*** Meta Argument
 
-    - The ***`count`*** Meta Argument allows you to **specify the number of instances of a resource you want to create**. 
-    - It's used when you **need multiple identical resources with the same configuration**.
+    - The ***count*** Meta Argument allows you to **specify the number of instances of a resource you want to create**. 
+    - ***count*** is used when you **need multiple identical resources with the same configuration**.
     - ***count*** can be used with modules and with **every resource type**
     - The ***count*** argument **must be a non-negative whole number**. 
     - If ***count*** is **set to 0**, it **will not create any instances of the resource**. 
