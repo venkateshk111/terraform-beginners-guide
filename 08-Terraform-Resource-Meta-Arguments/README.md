@@ -22,9 +22,9 @@
     - ***count*** can be used with modules and with **every resource type**
     - The ***count*** argument **must be a non-negative whole number**. 
     - If ***count*** is **set to 0**, it **will not create any instances of the resource**. 
-    - You can also use expressions to determine the count dynamically.
+    - You can also **use expressions** to determine the count dynamically.
     - When each instance is created, it has its own distinct infrastructure object associated with it, so **each can be managed separately**. When the configuration is applied, each object can be created, destroyed, or updated as appropriate.
-    - **Note** : A given resource or module block **cannot use both ***count*** and ***for_each***.
+    - **Note** : A given resource or module block **cannot use both ***count***** and ***for_each*** .
 
 - **Example**:
     ```hcl
