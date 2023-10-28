@@ -109,7 +109,6 @@
 
     - Notes: *count.index* is a zero-based index, meaning it starts from 0. You can use it to create dynamic and unique resource configurations for each instance created using count.
 
-
 2. ***`for_each`***
 
 
