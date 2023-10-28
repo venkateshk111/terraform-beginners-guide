@@ -8,7 +8,7 @@
 
 ### List of Terraform Meta Arguments
 
-1. ***`count`*** : The ***count*** Meta Argument allows you to **specify the number of instances of a resource you want to create**.
+1. [***`count`***](./08-01-count/) : The ***count*** Meta Argument allows you to **specify the number of instances of a resource you want to create**.
 2. ***`for_each`***
 3. ***`depends_on`***
 4. ***`provider`***
