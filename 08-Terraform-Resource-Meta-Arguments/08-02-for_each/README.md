@@ -33,7 +33,7 @@
 
     - **Note** : A **given resource or module block cannot use both ***count***** and ***for_each*** .
 
-    - **Example**:  ***`map`***
+    - **Example**:  ***`map`***  
     [00_provider.tf](./00_provider.tf)
         ```hcl
         terraform {
@@ -56,22 +56,23 @@
             }
         }
         ```
+        
+        [01_s3.tf](./01_s3.tf)
 
-    [01_s3.tf](./01_s3.tf)
         ```hcl
         resource "aws_s3_bucket" "mys3bucket" {
-            for_each = {
-                dev = "venkat-app-log"
-                uat = "venkat-app-log"
-                pre = "venkat-app-log"
-                prd = "venkat-app-log"
-            }
-            bucket = "${each.key}-${each-value}"
+        for_each = {
+            dev = "venkat-app-log"
+            uat = "venkat-app-log"
+            pre = "venkat-app-log"
+            prd = "venkat-app-log"
+        }
+        bucket = "${each.key}-${each.value}"
 
-            tags = {
+        tags = {
             Name = "${each.key}-${each.value}"
-            Env = "${each.key}"
-            }
+            Env  = each.key
+        }
         }
         ```
 
