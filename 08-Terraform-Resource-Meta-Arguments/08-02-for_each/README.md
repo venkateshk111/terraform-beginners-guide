@@ -135,21 +135,31 @@
         }
         ```
         
-        [01_s3.tf](./01_s3.tf)
+        [01_iam.tf](./01_iam.tf)
 
         ```hcl
-        resource "aws_s3_bucket" "mys3bucket" {
-        for_each = {
-            dev = "venkat-app-log"
-            uat = "venkat-app-log"
-            pre = "venkat-app-log"
-            prd = "venkat-app-log"
-        }
-        bucket = "${each.key}-${each.value}"
+        resource "aws_iam_user" "iamuser" {
+            for_each = toset(["Venkat", "Suresh", "Ramesh", "Venkat"])
+            name = each.key
 
-        tags = {
-            Name = "${each.key}-${each.value}"
-            Env  = each.key
+            tags = {
+            Name = each.key
+            }
         }
-        }
+
+        # above can also be written using map
+
+        # resource "aws_iam_user" "iamuser" {
+        #   for_each = {
+        #     Venkat  = null
+        #     Suresh  = null
+        #     Ramesh  = null
+        #   }
+
+        #   name = each.key
+
+        #   tags = {
+        #     Name = each.key
+        #   }
+        # }
         ```
