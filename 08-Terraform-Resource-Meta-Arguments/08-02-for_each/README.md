@@ -27,7 +27,7 @@
         - Sets **automatically ensure uniqueness**. If you add an element that already exists, it won't be duplicated.
         - Example:
             ```hcl
-            {"Venkatesh", "Suresh", "Ramesh", "Venkatesh"}
+            {"Venkat", "Suresh", "Ramesh", "Venkat"}
             ```
             - Though "Venkatesh" is defined 2 times , set considers it to be only one , it wont be duplicated.
 
@@ -111,3 +111,45 @@
         - Once terraform completes the execution you should be able to check on your AWS Console both S3 buckets are successfully deleted.
         ![terraform destroy](./imgs/08-02-12-for_each-tf-destroy-aws.png)
 
+    - **Example**:  ***`set`*** 
+        [00_provider.tf](./00_provider.tf)
+        ```hcl
+        terraform {
+        required_providers {
+            aws = {
+                source = "hashicorp/aws"
+                version = "~> 5.0" 
+            }
+        }
+        }
+
+        provider "aws" {
+            region = "us-east-1"
+
+            default_tags {
+            tags = {
+                Terraform = "yes"
+                Project = "terraform-learning"
+            }
+            }
+        }
+        ```
+        
+        [01_s3.tf](./01_s3.tf)
+
+        ```hcl
+        resource "aws_s3_bucket" "mys3bucket" {
+        for_each = {
+            dev = "venkat-app-log"
+            uat = "venkat-app-log"
+            pre = "venkat-app-log"
+            prd = "venkat-app-log"
+        }
+        bucket = "${each.key}-${each.value}"
+
+        tags = {
+            Name = "${each.key}-${each.value}"
+            Env  = each.key
+        }
+        }
+        ```
