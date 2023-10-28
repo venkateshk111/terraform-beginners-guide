@@ -9,8 +9,8 @@
 ### List of Terraform Meta Arguments
 
 1. ***`count`***
-2. ***`depends_on`***
-3. ***`for_each`***
+2. ***`for_each`***
+3. ***`depends_on`***
 4. ***`provider`***
 5. ***`lifecycle`***  
 <!-- -->
@@ -24,6 +24,11 @@
     - If ***count*** is **set to 0**, it **will not create any instances of the resource**. 
     - You can also **use expressions** to determine the count dynamically.
     - When each instance is created, it has its own distinct infrastructure object associated with it, so **each can be managed separately**. When the configuration is applied, each object can be created, destroyed, or updated as appropriate.
+    - ***`count.index`***
+        - ***count.index*** is a spacial variable used in conjunction with the *count* Meta Argument.
+        - ***count.index*** allows you to access the current index of a resource instance within a count block. 
+        - This can be particularly useful when you need to make resource configurations that are unique or depend on their position in the list of instances created by count.
+
     - **Note** : A **given resource or module block cannot use both ***count***** and ***for_each*** .
 
 - **Example**:  
@@ -86,3 +91,38 @@
 
         - Once terraform completes the execution you should be able to check on your AWS Console both EC2 successfully terminated.
         ![terraform destroy](./imgs/05-tf-destroy-aws.png)
+
+*  #### ***`count.index`*** 
+    - Example Code for  ***count.index*** 
+        ```hcl
+        resource "aws_instance" "example" {
+        count         = 2
+        ami           = "ami-0df435f331839b2d6"
+        instance_type = "t2.micro"
+
+        tags = {
+            Name = "Instance-${count.index + 1}"
+        }
+        }    
+        ```
+    - In this example, we are creating two AWS EC2 instances with the same AMI and instance type. However, the tags block utilizes *count.index* to set a unique name tag for each instance. By adding 1 to *count.index*, we ensure the instance names are "Instance-1" and "Instance-2"."
+
+    - Notes: *count.index* is a zero-based index, meaning it starts from 0. You can use it to create dynamic and unique resource configurations for each instance created using count.
+
+
+2. ***`for_each`***
+
+
+
+3. ***`depends_on`***
+
+
+
+
+4. ***`provider`***
+
+
+
+
+
+5. ***`lifecycle`***  
