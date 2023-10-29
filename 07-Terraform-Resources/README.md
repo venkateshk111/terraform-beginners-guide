@@ -173,7 +173,7 @@ Terraform resource behaviors refer to,
     5. ***`terraform apply`*** : *Create* Resources by terraform
         - *`terraform apply`* is like pressing the "**execute**" button for your Terraform configuration. 
         - It tells Terraform to **create, update, or delete resources in your infrastructure** based on your configuration.
-        - Be vary cautions before you provide approval for  *`terraform apply`* command as it modifies your infrastructure
+        - Be very cautious before you provide approval for  *`terraform apply`* command as it modifies your infrastructure
         - Lets understand *`terraform apply`* in more detail:
             1. **Execution:** Terraform **analyzes** your configuration and the current state of your infrastructure to **identify the differences between the desired state and the actual state**.
             
@@ -219,15 +219,6 @@ Terraform resource behaviors refer to,
             ![terraform destroy](./imgs/11-tf-destroy4-aws.png)
         - Once terraform completes the execution you should be able to check on your AWS Console resource (EC2) successfully terminated.
             ![terraform destroy](./imgs/11-tf-destroy5-aws.png)
-
-
-
-
-
-
-
-
-
 
 
 
