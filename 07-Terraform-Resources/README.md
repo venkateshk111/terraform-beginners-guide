@@ -224,10 +224,10 @@ Terraform resource behaviors refer to,
 
 - ### ***`terraform apply -auto-approve`*** and ***`terraform destroy -auto-approve`***
     - The *-auto-approve* flag is an option that can be added to the terraform apply command to skip the confirmation step.
-    - When you use *`terraform apply -auto-approve`* or *`terraform destroy -auto-approve`*, **Terraform will not ask for your confirmation** and will **immediately apply** the changes described in the execution plan.
+    - When you use *`terraform apply -auto-approve`* or *`terraform destroy -auto-approve`*, **Terraform will not ask for your confirmation and will immediately apply** the changes described in the execution plan.
     - This can be **useful for automation, scripting, or CI/CD pipelines** where manual confirmation is not possible
-    - However, be cautious when using *-auto-approve* in production environments, as it can lead to unintended changes if the execution plan is not thoroughly reviewed.
-    - Always review the execution plan carefully before using *-auto-approve* to ensure that the changes are as expected and won't cause any issues in your infrastructure.
+    - However, **be cautious when using *-auto-approve* in production environments**, as it can lead to unintended changes if the execution plan is not thoroughly reviewed.
+    - **Always review the execution plan carefully before using *-auto-approve*** to ensure that the changes are as expected and won't cause any issues in your infrastructure.
         ![terraform apply auto approve](./imgs/12-tf-apply-auto-approve.jpeg)
 
 
