@@ -123,6 +123,7 @@ Terraform resource behaviors refer to,
     1. ***`terraform init`*** : *Initialize* terraform
         - The `terraform init` command is used to **initialize a Terraform configuration**. 
         - It sets up the necessary components and dependencies for Terraform to manage your infrastructure.
+            ![terraform init](./imgs/02-tf-init.png)
         - **Downloading Providers and Modules:** On executing `terraform init` command terraform downloads the plugin for provider (in our case AWS) under ***.terraform*** folder in the current directory
             ![terraform plugin](./imgs/03-tf-provider-plugin.png)
         - **Locking and Tracking Dependencies:** Terraform also creates a ***terraform.lock.hcl*** file to track provider and module versions.
@@ -163,10 +164,10 @@ Terraform resource behaviors refer to,
             *Error: No valid credential sources found* 
             ![terraform plan error](./imgs/07-tf-plan-error.png)
         - setup [AWS Credentials](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication) using your preferred methods
-            ![terraform plan error](./imgs/08-tf-aws-cred.png)
+            ![terraform aws cred](./imgs/08-tf-aws-cred.png)
         - Example of `terraform plan`
-            ![terraform plan error](./imgs/09-tf-plan1.png)
-            ![terraform plan error](./imgs/09-tf-plan2.png)
+            ![terraform plan](./imgs/09-tf-plan1.png)
+            ![terraform plan](./imgs/09-tf-plan2.png)
 
 
 
