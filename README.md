@@ -54,6 +54,8 @@
         - execute the terraform commands to create VPC using vpc.tf and update the command documentation with screenshots     
      - 07-Terraform-Resources
         - Terraform resource behavior for  in place update (add tag) destroy and recreate (change AZ)
+    - 08-Terraform-Resource-Meta-Arguments
+        - *for_each* for set creating iam user notes
 
 - #### Revise following
     - terraform dependency file ?
