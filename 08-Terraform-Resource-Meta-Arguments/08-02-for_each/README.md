@@ -13,9 +13,9 @@
         - Example:
             ```hcl
             {
-                Venkatesh : "98869-12345",
-                Suresh    : "98450-56789",
-                Ramesh    : "94480-54321"
+                Amar : "98869-12345",
+                Akbar    : "98450-56789",
+                Anthony    : "94480-54321"
             }
             ```
             - You have names (keys) and phone numbers (values). Each name (key) is associated with a specific phone number (value).
@@ -27,14 +27,14 @@
         - Sets **automatically ensure uniqueness**. If you add an element that already exists, it won't be duplicated.
         - Example:
             ```hcl
-            {"Venkat", "Suresh", "Ramesh", "Venkat"}
+            {"Amar", "Akbar", "Anthony", "Amar"}
             ```
-            - Though "Venkatesh" is defined 2 times , set considers it to be only one , it wont be duplicated.
+            - Though "Amar" is defined 2 times , set considers it to be only one , it wont be duplicated.
 
     - **Note** : A **given resource or module block cannot use both ***count***** and ***for_each*** .
 
     - **Example**:  ***`map`***  
-    [00_provider.tf](./00_provider.tf)
+    [00_provider.tf](./01-for_each-map/00_provider.tf)
         ```hcl
         terraform {
         required_providers {
@@ -57,7 +57,7 @@
         }
         ```
         
-        [01_s3.tf](./01_s3.tf)
+    [01_s3.tf](./01-for_each-map/01_s3.tf)
 
         ```hcl
         resource "aws_s3_bucket" "mys3bucket" {
@@ -84,82 +84,30 @@
     4. ***`terraform plan`*** : *Review* the terraform plan
     5. ***`terraform apply`*** : *Create* Resources by terraform
         - Example of *`terraform apply`*
-            ![terraform apply](./imgs/08-02-01-for_each-tf-apply1.png)
-            ![terraform apply](./imgs/08-02-02-for_each-tf-apply2.png)
-            ![terraform apply](./imgs/08-02-03-for_each-tf-apply3.png)
-            ![terraform apply](./imgs/08-02-04-for_each-tf-apply4.png)
+            ![terraform apply](./01-for_each-map/imgs/08-02-01-for_each-tf-apply1.png)
+            ![terraform apply](./01-for_each-map/imgs/08-02-02-for_each-tf-apply2.png)
+            ![terraform apply](./01-for_each-map/imgs/08-02-03-for_each-tf-apply3.png)
+            ![terraform apply](./01-for_each-map/imgs/08-02-04-for_each-tf-apply4.png)
 
         - After you type ***yes*** to *`terraform apply`* prompt, terraform will start **creating** resources.
-            ![terraform apply](./imgs/08-02-05-for_each-tf-apply5.png)
+            ![terraform apply](./01-for_each-map/imgs/08-02-05-for_each-tf-apply5.png)
 
         - Once terraform completes the execution you should be able to check on your AWS Console four S3 buckets created successfully
-            ![terraform apply](./imgs/08-02-06-for_each-aws-s3.png)
+            ![terraform apply](./01-for_each-map/imgs/08-02-06-for_each-aws-s3.png)
 
         - Each bucket is tagged with respect to its ***Env value***
-            ![terraform apply](./imgs/08-02-07-for_each-aws-s3-dev.png)
-            ![terraform apply](./imgs/08-02-08-for_each-aws-s3-uat.png)
-            ![terraform apply](./imgs/08-02-09-for_each-aws-s3-pre.png)
-            ![terraform apply](./imgs/08-02-10-for_each-aws-s3-prd.png)
+            ![terraform apply](./01-for_each-map/imgs/08-02-07-for_each-aws-s3-dev.png)
+            ![terraform apply](./01-for_each-map/imgs/08-02-08-for_each-aws-s3-uat.png)
+            ![terraform apply](./01-for_each-map/imgs/08-02-09-for_each-aws-s3-pre.png)
+            ![terraform apply](./01-for_each-map/imgs/08-02-10-for_each-aws-s3-prd.png)
 
  
     6. ***`terraform destroy`*** : *destroy or delete* Resources, Cleanup the resources we created
         - After you type ***yes*** to *`terraform destroy`* prompt, terraform will start **destroying** resources
 
-        ![terraform destroy](./imgs/08-02-11-for_each-tf-destroy.png)
+        ![terraform destroy](./01-for_each-map/imgs/08-02-11-for_each-tf-destroy.png)
 
 
         - Once terraform completes the execution you should be able to check on your AWS Console both S3 buckets are successfully deleted.
-        ![terraform destroy](./imgs/08-02-12-for_each-tf-destroy-aws.png)
+        ![terraform destroy](./01-for_each-map/imgs/08-02-12-for_each-tf-destroy-aws.png)
 
-    - **Example**:  ***`set`*** 
-        [00_provider.tf](./00_provider.tf)
-        ```hcl
-        terraform {
-        required_providers {
-            aws = {
-                source = "hashicorp/aws"
-                version = "~> 5.0" 
-            }
-        }
-        }
-
-        provider "aws" {
-            region = "us-east-1"
-
-            default_tags {
-            tags = {
-                Terraform = "yes"
-                Project = "terraform-learning"
-            }
-            }
-        }
-        ```
-        
-        [01_iam.tf](./01_iam.tf)
-
-        ```hcl
-        resource "aws_iam_user" "iamuser" {
-            for_each = toset(["Venkat", "Suresh", "Ramesh", "Venkat"])
-            name = each.key
-
-            tags = {
-            Name = each.key
-            }
-        }
-
-        # above can also be written using map
-
-        # resource "aws_iam_user" "iamuser" {
-        #   for_each = {
-        #     Venkat  = null
-        #     Suresh  = null
-        #     Ramesh  = null
-        #   }
-
-        #   name = each.key
-
-        #   tags = {
-        #     Name = each.key
-        #   }
-        # }
-        ```
