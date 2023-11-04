@@ -1,4 +1,4 @@
-##  Terraform Resource Meta-Arguments
+##  ## Terraform Meta Argument: `provider`
 
 2. ### ***`provider`*** Meta Argument
 
