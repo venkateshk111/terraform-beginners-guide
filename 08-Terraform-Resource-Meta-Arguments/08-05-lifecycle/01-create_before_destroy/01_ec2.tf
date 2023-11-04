@@ -8,7 +8,7 @@ resource "aws_instance" "myec2" {
     Name = "Linux2023"
   }
 
-  lifecycle {
-    ignore_changes = [ tags ]
-  }
+  # lifecycle {
+  #   create_before_destroy = true
+  # }
 }
