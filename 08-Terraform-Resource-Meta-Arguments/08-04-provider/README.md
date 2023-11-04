@@ -6,7 +6,7 @@
 - You can use multiple providers within the same configuration to **manage resources in different cloud regions or service providers**. 
 - Each provider definition specifies a different set of configuration parameters, enabling you to interact with multiple environments.
 
-- **Scenario**: Suppose a user wants to use two different AWS regions to launch EC2 instances.
+- **Scenario**: Suppose a you want to **create 2 VPC in 2 different regions**, or may be **you want to launch EC2 instance in 2 different regions**.
 
 - **Example**:  
 
