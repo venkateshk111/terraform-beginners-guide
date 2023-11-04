@@ -1,6 +1,6 @@
-##  Terraform Resource Meta-Arguments
+## Terraform Meta Argument: *`for_each`*
 
-2. ### ***`for_each`*** Meta Argument
+### ***`for_each`*** Meta Argument
 
     - The ***for_each*** Meta Argument is used to **create multiple instances of a resource based on the elements of a ***`map`*** or ***`set`*****. 
     - ***for_each*** provides flexibility for **managing resources with different configurations**.

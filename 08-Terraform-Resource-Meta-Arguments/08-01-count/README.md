@@ -1,7 +1,7 @@
 
-## Terraform Resource Meta-Arguments
+## Terraform Meta Argument: *`count`*
 
-1. ### ***`count`*** Meta Argument
+### ***`count`*** Meta Argument
 
     - The ***count*** Meta Argument allows you to **specify the number of instances of a resource you want to create**. 
     - ***count*** is used when you **need multiple identical resources with the same configuration**.

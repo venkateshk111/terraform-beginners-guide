@@ -1,6 +1,6 @@
-##  Terraform Resource Meta-Arguments
+## Terraform Meta Argument: *`depends_on`*
 
-2. ### ***`depends_on`*** Meta Argument
+### ***`depends_on`*** Meta Argument
 
     - The ***depends_on*** Meta Argument in Terraform is used to **establish ***explicit*** dependencies between resources**, specifying that one resource **depends on the successful creation or modification of another resource**.
     - When you set *`depends_on`* for a resource, you indicate that **this resource should only be created or modified after the resources listed in *`depends_on`* are successfully created or modified**.
