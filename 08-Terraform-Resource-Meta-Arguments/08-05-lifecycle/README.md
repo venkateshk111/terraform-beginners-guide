@@ -75,10 +75,10 @@
     4. ***`terraform plan`*** : *Review* the terraform plan
     5. ***`terraform apply`*** : *Create* Resources by terraform
 
-        - Once terraform completes the execution you should be able to check on your AWS Console Resource created successfully
-            ![terraform aws](./imgs/01-tf-ma-lc-aws-ec2.png)
+    - Once terraform completes the execution you should be able to check on your AWS Console Resource created successfully
+        ![terraform aws](./imgs/01-tf-ma-lc-aws-ec2.png)
 
-- Now lets try to change the Availability Zone of our EC2 Instance to **without `lifecycle`** arguments and observe the behavior 
+- Now lets try to change the **Availability Zone** of our EC2 Instance to **without `lifecycle`** arguments and observe the behavior 
 
     ```hcl
     resource "aws_instance" "myec2" {
@@ -105,7 +105,7 @@
     4. ***`terraform plan`*** : *Review* the terraform plan
     5. ***`terraform apply`*** : *Create* Resources by terraform
 
-    * Once we run *`terraform apply`* , Terraform first destroys existing resources first and than creates the resource
+    - Once we run *`terraform apply`* , Terraform first destroys existing resources and than creates the resource
 
         - Example of *`terraform apply`*
 
@@ -185,8 +185,9 @@
     - Terraform detects the Manual changes made on AWS console and if we run *terraform apply* than terraform will remove the manually applied tags on AWS EC2
         ![terraform plan](./imgs/10-tf-ma-lc-ic-plan-1.png)
 
-    - Now, lets add in meta argument `ignore_changes` for *tags* and see how terraform behaves.
-    [01_ec2.tf](./03-ignore_changes/01_ec2.tf) 
+    - Now, lets add in meta argument `ignore_changes` for *tags* and see how terraform behaves.  
+
+        [01_ec2.tf](./03-ignore_changes/01_ec2.tf) 
 
         ```hcl
         resource "aws_instance" "myec2" {
