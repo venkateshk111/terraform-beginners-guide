@@ -209,6 +209,28 @@
          ![terraform plan](./imgs/11-tf-ma-lc-ic-plan-2.png)
 
 
+- ***`ignore_changes`*** can additionally be used to **ignore all the changes for particular resource** with option, *ignore_changes = all*
+    - Terraform will completely ignore any changes to all attributes of that resource when it attempts to update or modify it
+
+    - Example: 
+
+        ```hcl
+        resource "aws_instance" "myec2" {
+        ami               = "ami-0df435f331839b2d6"
+        instance_type     = "t2.micro"
+        availability_zone = "us-east-1a"
+        # availability_zone = "us-east-1b"
+
+        tags = {
+            Name = "Linux2023"
+        }
+
+        lifecycle {
+            ignore_changes = [ all ]
+        }
+        }
+        ```
+    - It's usually a better practice to specify the exact attributes you want to ignore changes for, rather than using "*all*" to have more fine-grained control over which attributes should be excluded from updates
 
  
     #### Cleanup 
