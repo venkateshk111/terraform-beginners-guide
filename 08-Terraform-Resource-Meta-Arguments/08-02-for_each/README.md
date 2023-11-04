@@ -2,79 +2,81 @@
 
 ### ***`for_each`*** Meta Argument
 
-    - The ***for_each*** Meta Argument is used to **create multiple instances of a resource based on the elements of a ***`map`*** or ***`set`*****. 
-    - ***for_each*** provides flexibility for **managing resources with different configurations**.
-    - When you define a resource block with the *for_each* Meta Argument, you can provide a *`map`* or *`set`* that describes the configuration for each resource instance. 
-    - Terraform will then create a **separate resource for each element in the map or set**
+- The ***for_each*** Meta Argument is used to **create multiple instances of a resource based on the elements of a ***`map`*** or ***`set`*****. 
+- ***for_each*** provides flexibility for **managing resources with different configurations**.
+- When you define a resource block with the *for_each* Meta Argument, you can provide a *`map`* or *`set`* that describes the configuration for each resource instance. 
+- Terraform will then create a **separate resource for each element in the map or set**
    
-    - ***`map`***
-        - A ***map*** is a data structure that stores ***`key-value pairs`***. 
-        - **Each key in the map is unique**, and **it's associated with a specific value**
-        - Example:
-            ```hcl
-            {
-                Amar : "98869-12345",
-                Akbar    : "98450-56789",
-                Anthony    : "94480-54321"
-            }
-            ```
-            - You have names (keys) and phone numbers (values). Each name (key) is associated with a specific phone number (value).
-            - **Keys in a map are unique**, You **can't have two entries with the same key**. 
-
-    - ***`set`***
-        - A *set* is data structure that **stores a collection of distinct elements**. 
-        - In a *set*, **there are no duplicates**, and the **order of elements doesn't matter**.
-        - Sets **automatically ensure uniqueness**. If you add an element that already exists, it won't be duplicated.
-        - Example:
-            ```hcl
-            {"Amar", "Akbar", "Anthony", "Amar"}
-            ```
-            - Though "Amar" is defined 2 times , set considers it to be only one , it wont be duplicated.
-
-    - **Note** : A **given resource or module block cannot use both ***count***** and ***for_each*** .
-
-    - **Example**:  ***`map`***  
-    [00_provider.tf](./01-for_each-map/00_provider.tf)
+- ***`map`***
+    - A ***map*** is a data structure that stores ***`key-value pairs`***. 
+    - **Each key in the map is unique**, and **it's associated with a specific value**
+    - Example:
         ```hcl
-        terraform {
-        required_providers {
-            aws = {
-                source = "hashicorp/aws"
-                version = "~> 5.0" 
-            }
-        }
-        }
-
-        provider "aws" {
-            region = "us-east-1"
-
-            default_tags {
-            tags = {
-                Terraform = "yes"
-                Project = "terraform-learning"
-            }
-            }
+        {
+            Amar : "98869-12345",
+            Akbar    : "98450-56789",
+            Anthony    : "94480-54321"
         }
         ```
+        - You have names (keys) and phone numbers (values). Each name (key) is associated with a specific phone number (value).
+        - **Keys in a map are unique**, You **can't have two entries with the same key**. 
+
+- ***`set`***
+    - A *set* is data structure that **stores a collection of distinct elements**. 
+    - In a *set*, **there are no duplicates**, and the **order of elements doesn't matter**.
+    - Sets **automatically ensure uniqueness**. If you add an element that already exists, it won't be duplicated.
+    - Example:
+        ```hcl
+        {"Amar", "Akbar", "Anthony", "Amar"}
+        ```
+        - Though "Amar" is defined 2 times , set considers it to be only one , it wont be duplicated.
+
+- **Note** : A **given resource or module block cannot use both ***count***** and ***for_each*** .
+
+- **Example**:  ***`map`***  
+
+    [00_provider.tf](./01-for_each-map/00_provider.tf)
+
+    ```hcl
+    terraform {
+    required_providers {
+        aws = {
+            source = "hashicorp/aws"
+            version = "~> 5.0" 
+        }
+    }
+    }
+
+    provider "aws" {
+        region = "us-east-1"
+
+        default_tags {
+        tags = {
+            Terraform = "yes"
+            Project = "terraform-learning"
+        }
+        }
+    }
+    ```
         
     [01_s3.tf](./01-for_each-map/01_s3.tf)
 
-        ```hcl
-        resource "aws_s3_bucket" "mys3bucket" {
-        for_each = {
-            dev = "venkat-app-log"
-            uat = "venkat-app-log"
-            pre = "venkat-app-log"
-            prd = "venkat-app-log"
-        }
-        bucket = "${each.key}-${each.value}"
+    ```hcl
+    resource "aws_s3_bucket" "mys3bucket" {
+    for_each = {
+        dev = "venkat-app-log"
+        uat = "venkat-app-log"
+        pre = "venkat-app-log"
+        prd = "venkat-app-log"
+    }
+    bucket = "${each.key}-${each.value}"
 
-        tags = {
-            Name = "${each.key}-${each.value}"
-            Env  = each.key
-        }
-        }
-        ```
+    tags = {
+        Name = "${each.key}-${each.value}"
+        Env  = each.key
+    }
+    }
+     ```
 
 - Lets Execute Terraform commands to understand resource behavior
 

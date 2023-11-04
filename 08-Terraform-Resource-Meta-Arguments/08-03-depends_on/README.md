@@ -2,11 +2,12 @@
 
 ### ***`depends_on`*** Meta Argument
 
-    - The ***depends_on*** Meta Argument in Terraform is used to **establish ***explicit*** dependencies between resources**, specifying that one resource **depends on the successful creation or modification of another resource**.
-    - When you set *`depends_on`* for a resource, you indicate that **this resource should only be created or modified after the resources listed in *`depends_on`* are successfully created or modified**.
-    - This is particularly useful when you have resources that rely on the completion of certain tasks before they can proceed.
+- The ***depends_on*** Meta Argument in Terraform is used to **establish ***explicit*** dependencies between resources**, specifying that one resource **depends on the successful creation or modification of another resource**.
+
+- When you set *`depends_on`* for a resource, you indicate that **this resource should only be created or modified after the resources listed in *`depends_on`* are successfully created or modified**.
+- This is particularly useful when you have resources that rely on the completion of certain tasks before they can proceed.
     
-    - **Example**: You can use `depends_on` to ensure that *elastic ip* is assigned to a EC2 web server only after EC2 is created.
+- **Example**: You can use `depends_on` to ensure that *elastic ip* is assigned to a EC2 web server only after EC2 is created.
         1. Create *00_provider.tf* for providers
         2. Create an AWS EC2 instance using the *aws_instance* resource block.
         3. Create an AWS Elastic IP using the *aws_eip* resource block.
