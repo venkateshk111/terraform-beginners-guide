@@ -175,7 +175,7 @@ In Terraform, variables are placeholders that allow you to input data into your 
     Plan: 1 to add, 0 to change, 0 to destroy.
     ```
 
-## Overriding Variable `default` values with `-var` Option
+## Overriding `default` Variable values with `-var` Option
 
 
 In Terraform, you can override the default values defined in a variable file using the ***`-var`*** option while running *`terraform plan`* or *`terraform apply`* commands. This allows you to provide custom values for variables **during command execution**.
@@ -200,9 +200,9 @@ In Terraform, you can override the default values defined in a variable file usi
     ```
 
 - ***`terraform plan`*** Output
-    - You can Notice the change in `instance_type` to `"m4.large"` and you also see 2 EC2 instances `aws_instance.myec2[0]` and aws_instance.myec2[1] being created.
+    - You can Notice the change in `instance_type` to `"m4.large"` and you also see 2 EC2 instances `aws_instance.myec2[0]` and `aws_instance.myec2[1]` being created.
 
-    ```shell
+    ```hcl
     $ terraform plan -var="ec2_instance_type=m4.large" -var="instance_count=2"
 
     Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
