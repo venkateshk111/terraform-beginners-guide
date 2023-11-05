@@ -336,3 +336,123 @@ In Terraform, you can override the default values defined in a variable file usi
     terraform apply tfplan_05112023.plan
     ```
     - In above example terraform will over ride default values for `ec2_instance_type` and `instance_count` and deploy the resources using Plan file  
+
+
+## Overriding `default` Variable values with `Environment Variables` Options
+
+In Terraform, you can override input variables using environment variables, providing a way to customize your configurations without modifying the Terraform code.
+
+- **Environment Variables:** 
+    - Environment variables are a way to store values that can be accessed by different programs or scripts. 
+    - In Terraform, you can use environment variables to override the values of input variables during the execution of Terraform commands.
+    - To override input variables with environment variables, Prefix the name of the input variable with ***`TF_VAR_`***
+    - **Syntax**
+        - *`TF_VAR_variable_name=value`* where `variable_name` is name of your input variable
+        - use the *`export`* command to set the Environment Variable
+    
+    - **Example**
+        ```shell
+        # SET Environment Variables
+        export TF_VAR_ec2_instance_type=t2.large
+        export TF_VAR_owner=Amar
+        echo $TF_VAR_ec2_instance_type, $TF_VAR_owner
+        ```
+
+- ***`terraform plan`*** Output
+
+    - You can notice the change in `instance_type` to `"t2.large"` and `Owner` to "`Amar`"
+
+        ```hcl
+        Venkatesh@LenovoPC MINGW64 /d/StudyRelated/terraform-beginners-guide/09-Terraform-Variables/09-01-Terraform-Variables-default (main)
+        $ export TF_VAR_ec2_instance_type=t2.large
+
+        Venkatesh@LenovoPC MINGW64 /d/StudyRelated/terraform-beginners-guide/09-Terraform-Variables/09-01-Terraform-Variables-default (main)
+        $ export TF_VAR_owner=Amar
+
+        Venkatesh@LenovoPC MINGW64 /d/StudyRelated/terraform-beginners-guide/09-Terraform-Variables/09-01-Terraform-Variables-default (main)
+        $ echo $TF_VAR_ec2_instance_type, $TF_VAR_owner
+        t2.large, Amar
+
+        Venkatesh@LenovoPC MINGW64 /d/StudyRelated/terraform-beginners-guide/09-Terraform-Variables/09-01-Terraform-Variables-default (main)
+        $ terraform plan
+
+        Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+        + create
+
+        Terraform will perform the following actions:
+
+        # aws_instance.myec2[0] will be created
+        + resource "aws_instance" "myec2" {
+            + ami                                  = "ami-0df435f331839b2d6"
+            + arn                                  = (known after apply)
+            + associate_public_ip_address          = (known after apply)
+            + availability_zone                    = (known after apply)
+            + cpu_core_count                       = (known after apply)
+            + cpu_threads_per_core                 = (known after apply)
+            + disable_api_stop                     = (known after apply)
+            + disable_api_termination              = (known after apply)
+            + ebs_optimized                        = (known after apply)
+            + get_password_data                    = false
+            + host_id                              = (known after apply)
+            + host_resource_group_arn              = (known after apply)
+            + iam_instance_profile                 = (known after apply)
+            + id                                   = (known after apply)
+            + instance_initiated_shutdown_behavior = (known after apply)
+            + instance_lifecycle                   = (known after apply)
+            + instance_state                       = (known after apply)
+            + instance_type                        = "t2.large"
+            + ipv6_address_count                   = (known after apply)
+            + ipv6_addresses                       = (known after apply)
+            + key_name                             = (known after apply)
+            + monitoring                           = (known after apply)
+            + outpost_arn                          = (known after apply)
+            + password_data                        = (known after apply)
+            + placement_group                      = (known after apply)
+            + placement_partition_number           = (known after apply)
+            + primary_network_interface_id         = (known after apply)
+            + private_dns                          = (known after apply)
+            + private_ip                           = (known after apply)
+            + public_dns                           = (known after apply)
+            + public_ip                            = (known after apply)
+            + secondary_private_ips                = (known after apply)
+            + security_groups                      = (known after apply)
+            + source_dest_check                    = true
+            + spot_instance_request_id             = (known after apply)
+            + subnet_id                            = (known after apply)
+            + tags                                 = {
+                + "Name" = "Linux2023"
+                }
+            + tags_all                             = {
+                + "Name"      = "Linux2023"
+                + "Owner"     = "Amar"
+                + "Terraform" = "yes"
+                }
+            + tenancy                              = (known after apply)
+            + user_data                            = (known after apply)
+            + user_data_base64                     = (known after apply)
+            + user_data_replace_on_change          = false
+            + vpc_security_group_ids               = (known after apply)
+            }
+
+        Plan: 1 to add, 0 to change, 0 to destroy.
+
+        ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+
+        Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" 
+        now.
+
+        Venkatesh@LenovoPC MINGW64 /d/StudyRelated/terraform-beginners-guide/09-Terraform-Variables/09-01-Terraform-Variables-default (main)
+        $
+        ```
+    - Use *`unset`* command to remove the Environment Variables
+
+        ```shell
+        # SET Environment Variables
+        unset TF_VAR_ec2_instance_type
+        unset TF_VAR_owner
+        echo $TF_VAR_ec2_instance_type, $TF_VAR_owner
+        ```
+
+## References : 
+
+[Environment Variable TF_VAR_name](https://developer.hashicorp.com/terraform/cli/config/environment-variables#tf_var_name)
