@@ -322,3 +322,25 @@ In Terraform, you can override the default values defined in a variable file usi
 
     Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
     ```
+
+    - You can also create *`terraform plan`* output file with *`-out`* option and use that file as input to apply
+    - Note: **when** *`terraform apply`* **is used with plan file than it wont prompt for approval** instead it will apply immediately
+
+    **Example:**
+
+    ```hcl
+    # Generate Terraform plan file
+    terraform plan -var="ec2_instance_type=m4.large" -var="instance_count=2" -out tfplan_05112023.plan
+
+    # Deploy Terraform Resources using Plan file
+    terraform apply tfplan_05112023.plan
+    ```
+    - In above example terraform will over ride default values for `ec2_instance_type` and `instance_count` and deploy the resources using Plan file  
+    
+
+    ```shell
+    # Generate Terraform plan file
+    terraform plan -var="ec2_instance_type=m4.large" -var="instance_count=2" -out tfplan_05112023.plan
+
+    # Deploy Terraform Resources using Plan file
+    terr
