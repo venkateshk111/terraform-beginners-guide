@@ -336,11 +336,3 @@ In Terraform, you can override the default values defined in a variable file usi
     terraform apply tfplan_05112023.plan
     ```
     - In above example terraform will over ride default values for `ec2_instance_type` and `instance_count` and deploy the resources using Plan file  
-    
-
-    ```shell
-    # Generate Terraform plan file
-    terraform plan -var="ec2_instance_type=m4.large" -var="instance_count=2" -out tfplan_05112023.plan
-
-    # Deploy Terraform Resources using Plan file
-    terr
