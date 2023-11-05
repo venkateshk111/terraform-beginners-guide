@@ -90,11 +90,11 @@ In Terraform, variables are placeholders that allow you to input data into your 
 
 
 - In the above example, We've defined five variables: 
-    1. `aws_region`: 
-    2. `owner`: 
-    3. `ec2_ami`: 
-    4. `ec2_instance_type`:
-    5. `instance_count`: 
+    1. `aws_region`: default AWS Region to be used
+    2. `owner`: Name of the Engineer who is creating Resources
+    3. `ec2_ami`: AWS EC2 AMI
+    4. `ec2_instance_type`: AWS EC2 Instance type
+    5. `instance_count`: Number of EC2 to be Created
 
 - Each variable has a specific **data type** (*string* or  *number*) and *optional default values*.
 
