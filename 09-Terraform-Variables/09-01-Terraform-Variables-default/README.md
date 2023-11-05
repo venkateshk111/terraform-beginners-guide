@@ -1,5 +1,6 @@
 # Terraform Variables
 
+### Terraform Variables with `default` Option
 
 In Terraform, variables are placeholders that allow you to input data into your configurations, making your Terraform code more flexible and reusable.
 
