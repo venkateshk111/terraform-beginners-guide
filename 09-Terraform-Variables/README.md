@@ -460,6 +460,6 @@ In Terraform, you can override input variables using environment variables, prov
 
 ## References : 
 
-[](https://developer.hashicorp.com/terraform/language/values/variables)
+[Input Variables](https://developer.hashicorp.com/terraform/language/values/variables)
 
 [Environment Variable TF_VAR_name](https://developer.hashicorp.com/terraform/cli/config/environment-variables#tf_var_name)
