@@ -55,7 +55,7 @@
 - #### Pending Notes
     - 02-Terraform-Configuration
     - 04-Terraform-Top-Level-Blocks
-        - Multiple Providers
+        - Multiple Providers ( covered in meta argument provider)
      - 05-Terraform-Commands
      - 06-Terraform-VPC-Demo
         - execute the terraform commands to create VPC using vpc.tf and update the command documentation with screenshots     
@@ -67,3 +67,12 @@
 - #### Revise following
     - terraform dependency file ?
     - terraform lock file ?
+
+## Project Work
+
+1.  Create Simple Web Server
+    - AWS Components
+        - EC2
+        - Security Group to allow port 22
+        - Security Group to allow port 80, 443
+    - Use Terraform variables where ever possible.
