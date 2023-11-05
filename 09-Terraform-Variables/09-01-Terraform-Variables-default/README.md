@@ -200,7 +200,7 @@ In Terraform, you can override the default values defined in a variable file usi
     ```
 
 - ***`terraform plan`*** Output
-    - You can Notice the change in `instance_type` to `"m4.large"` and you also see 2 EC2 instances `aws_instance.myec2[0]` and `aws_instance.myec2[1]` being created.
+    - You can notice the change in `instance_type` to `"m4.large"` and you also see **2 EC2 instances** `aws_instance.myec2[0]` and `aws_instance.myec2[1]` being created.
 
     ```hcl
     $ terraform plan -var="ec2_instance_type=m4.large" -var="instance_count=2"
