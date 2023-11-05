@@ -1,5 +1,10 @@
 # Terraform Variables
 
+Lets Explore
+- Terraform Variables with `default` Option
+- Overriding `default` Variable values with `-var` Option
+- Overriding `default` Variable values with `Environment Variables` Options
+
 ## Terraform Variables with `default` Option
 
 In Terraform, variables are placeholders that allow you to input data into your configurations, making your Terraform code more flexible and reusable.
@@ -454,5 +459,7 @@ In Terraform, you can override input variables using environment variables, prov
         ```
 
 ## References : 
+
+[Input Variables](https://developer.hashicorp.com/terraform/language/values/variables)
 
 [Environment Variable TF_VAR_name](https://developer.hashicorp.com/terraform/cli/config/environment-variables#tf_var_name)
