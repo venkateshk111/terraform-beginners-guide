@@ -1,6 +1,6 @@
 # Terraform Variables
 
-### Terraform Variables with `default` Option
+## Terraform Variables with `default` Option
 
 In Terraform, variables are placeholders that allow you to input data into your configurations, making your Terraform code more flexible and reusable.
 
@@ -14,6 +14,8 @@ In Terraform, variables are placeholders that allow you to input data into your 
 - When running Terraform, you can input values for variables, either by specifying them in a separate variable file or through command-line arguments.
 
 - Variables make your code reusable. You can use the same Terraform configuration with different input values, making it adaptable to different environment (prd, pre, uat, dev).
+
+- **Variable Defaults**: When declaring variables in your Terraform configuration, you can set **default** values. These defaults act as placeholders and are used when no other value is provided.
 
 - **Example**:  
 
@@ -171,4 +173,152 @@ In Terraform, variables are placeholders that allow you to input data into your 
         }
 
     Plan: 1 to add, 0 to change, 0 to destroy.
+    ```
+
+## Overriding Variable `default` values with `-var` Option
+
+
+In Terraform, you can override the default values defined in a variable file using the ***`-var`*** option while running *`terraform plan`* or *`terraform apply`* commands. This allows you to provide custom values for variables **during command execution**.
+
+
+- **Variable Overrides**: To customize these variables during *`plan`* or *`apply`*, you can use the ***`-var`*** option, followed by the variable name and the new value. This enables you to replace the default value with the value you specify.
+
+**Example**:
+
+- Override *`owner`*:
+
+    ```shell
+    terraform apply -var="owner=Amar"
+
+    ```
+
+- Override *`ec2_instance_type`* and *`instance_count`* :
+
+    ```shell
+    terraform apply -var="ec2_instance_type=m4.large" -var="instance_count=2"
+
+    ```
+
+- ***`terraform plan`*** Output
+    - You can Notice the change in `instance_type` to `"m4.large"` and you also see 2 EC2 instances `aws_instance.myec2[0]` and aws_instance.myec2[1] being created.
+
+    ```shell
+    $ terraform plan -var="ec2_instance_type=m4.large" -var="instance_count=2"
+
+    Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+    + create
+
+    Terraform will perform the following actions:
+
+    # aws_instance.myec2[0] will be created
+    + resource "aws_instance" "myec2" {
+        + ami                                  = "ami-0df435f331839b2d6"
+        + arn                                  = (known after apply)
+        + associate_public_ip_address          = (known after apply)
+        + availability_zone                    = (known after apply)
+        + cpu_core_count                       = (known after apply)
+        + cpu_threads_per_core                 = (known after apply)
+        + disable_api_stop                     = (known after apply)
+        + disable_api_termination              = (known after apply)
+        + ebs_optimized                        = (known after apply)
+        + get_password_data                    = false
+        + host_id                              = (known after apply)
+        + host_resource_group_arn              = (known after apply)
+        + iam_instance_profile                 = (known after apply)
+        + id                                   = (known after apply)
+        + instance_initiated_shutdown_behavior = (known after apply)
+        + instance_lifecycle                   = (known after apply)
+        + instance_state                       = (known after apply)
+        + instance_type                        = "m4.large"
+        + ipv6_address_count                   = (known after apply)
+        + ipv6_addresses                       = (known after apply)
+        + key_name                             = (known after apply)
+        + monitoring                           = (known after apply)
+        + outpost_arn                          = (known after apply)
+        + password_data                        = (known after apply)
+        + placement_group                      = (known after apply)
+        + placement_partition_number           = (known after apply)
+        + primary_network_interface_id         = (known after apply)
+        + private_dns                          = (known after apply)
+        + private_ip                           = (known after apply)
+        + public_dns                           = (known after apply)
+        + public_ip                            = (known after apply)
+        + secondary_private_ips                = (known after apply)
+        + security_groups                      = (known after apply)
+        + source_dest_check                    = true
+        + spot_instance_request_id             = (known after apply)
+        + subnet_id                            = (known after apply)
+        + tags                                 = {
+            + "Name" = "Linux2023"
+            }
+        + tags_all                             = {
+            + "Name"      = "Linux2023"
+            + "Owner"     = "Venkatesh"
+            + "Terraform" = "yes"
+            }
+        + tenancy                              = (known after apply)
+        + user_data                            = (known after apply)
+        + user_data_base64                     = (known after apply)
+        + user_data_replace_on_change          = false
+        + vpc_security_group_ids               = (known after apply)
+        }
+
+    # aws_instance.myec2[1] will be created
+    + resource "aws_instance" "myec2" {
+        + ami                                  = "ami-0df435f331839b2d6"
+        + arn                                  = (known after apply)
+        + associate_public_ip_address          = (known after apply)
+        + availability_zone                    = (known after apply)
+        + cpu_core_count                       = (known after apply)
+        + cpu_threads_per_core                 = (known after apply)
+        + disable_api_stop                     = (known after apply)
+        + disable_api_termination              = (known after apply)
+        + ebs_optimized                        = (known after apply)
+        + get_password_data                    = false
+        + host_id                              = (known after apply)
+        + host_resource_group_arn              = (known after apply)
+        + iam_instance_profile                 = (known after apply)
+        + id                                   = (known after apply)
+        + instance_initiated_shutdown_behavior = (known after apply)
+        + instance_lifecycle                   = (known after apply)
+        + instance_state                       = (known after apply)
+        + instance_type                        = "m4.large"
+        + ipv6_address_count                   = (known after apply)
+        + ipv6_addresses                       = (known after apply)
+        + key_name                             = (known after apply)
+        + monitoring                           = (known after apply)
+        + outpost_arn                          = (known after apply)
+        + password_data                        = (known after apply)
+        + placement_group                      = (known after apply)
+        + placement_partition_number           = (known after apply)
+        + primary_network_interface_id         = (known after apply)
+        + private_dns                          = (known after apply)
+        + private_ip                           = (known after apply)
+        + public_dns                           = (known after apply)
+        + public_ip                            = (known after apply)
+        + secondary_private_ips                = (known after apply)
+        + security_groups                      = (known after apply)
+        + source_dest_check                    = true
+        + spot_instance_request_id             = (known after apply)
+        + subnet_id                            = (known after apply)
+        + tags                                 = {
+            + "Name" = "Linux2023"
+            }
+        + tags_all                             = {
+            + "Name"      = "Linux2023"
+            + "Owner"     = "Venkatesh"
+            + "Terraform" = "yes"
+            }
+        + tenancy                              = (known after apply)
+        + user_data                            = (known after apply)
+        + user_data_base64                     = (known after apply)
+        + user_data_replace_on_change          = false
+        + vpc_security_group_ids               = (known after apply)
+        }
+
+    Plan: 2 to add, 0 to change, 0 to destroy.
+
+    ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+
+    Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
     ```
