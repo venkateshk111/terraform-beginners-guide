@@ -126,11 +126,11 @@ In Terraform, you can create multiple `.tfvars` to meet you environment specific
     3. `ec2_ami`: AWS EC2 AMI
     4. `ec2_instance_type`: AWS EC2 Instance type
     5. `instance_count`: Number of EC2 to be Created
-    6. `env` : Environment Type ( PRE, Prod, Dev, UAT)
+    6. `env` : Environment Type (PRE, PRD, DEV, UAT)
 
 
 - ***`terraform plan`*** Output for ***`pre.tfvars`***:
-    - You can notice the change in `ec2_instance_type` to *t3.small* and `env` to *PRE* on the tags picked up as defined in `pre.tfvars` file
+    - You can notice the change in `ec2_instance_type` to *t3.small* and `env` to *PRE* on the tags picked up as defined in [*pre.tfvars*](./vars/pre.tfvars) file
 
         ```hcl
         $ terraform plan -var-file="./vars/pre.tfvars"
@@ -200,7 +200,7 @@ In Terraform, you can create multiple `.tfvars` to meet you environment specific
 
 - ***`terraform plan`*** Output for ***`prd.tfvars`***:
 
-    - You can notice the change in `ec2_instance_type` to *t3.large* and `env` to *PRD* on the tags picked up as defined in `prd.tfvars` file  
+    - You can notice the change in `ec2_instance_type` to *t3.large* and `env` to *PRD* on the tags picked up as defined in [*prd.tfvars*](./vars/prd.tfvars) file  
     
         ```hcl
         $ terraform plan -var-file ./vars/prd.tfvars 
