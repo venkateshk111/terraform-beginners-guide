@@ -103,7 +103,7 @@ In Terraform, you can customize your Terraform configurations without altering t
     5. `instance_count`: Number of EC2 to be Created
 
 - Now, Lets create `terraform.tfvars` file and explore how the file overrides the default variables.
-- let's override `ec2_instance_type` and `owner` variables in our configuration. Create a terraform.tfvars file like this:
+- let's override `ec2_instance_type` and `owner` variables in our configuration. Create a `terraform.tfvars` file like this:
 
     [terraform.tfvars](./terraform.tfvars)
     ```hcl
@@ -183,4 +183,3 @@ In Terraform, you can customize your Terraform configurations without altering t
 
 [Variable Definitions (.tfvars) Files](https://developer.hashicorp.com/terraform/language/values/variables#variable-definitions-tfvars-files)
 
-[Environment Variable TF_VAR_name](https://developer.hashicorp.com/terraform/cli/config/environment-variables#tf_var_name)
