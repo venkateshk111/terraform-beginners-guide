@@ -7,8 +7,8 @@
 In Terraform, you can customize your Terraform configurations without altering the code by using a **`terraform.tfvars`** file. 
 
 - `terraform.tfvars` file allows you to set custom values for your Terraform variables. 
-- When you run Terraform commands, it automatically reads `terraform.tfvars` and applies the specified values.
-- Name of the file should be exactly ***`terraform.tfvars`***
+- When you run Terraform commands, it automatically reads `terraform.tfvars` and will auto-load the variables present in this file by overriding the default values in `variables.tf` 
+- Name of the file should be exactly ***`terraform.tfvars`*** or ***`terraform.tfvars.json`***
 - **Syntax**
 
     ```hcl
