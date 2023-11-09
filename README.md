@@ -51,6 +51,8 @@
     3. [**Overriding `default` Variable values with `Environment Variables` Options**](09-Terraform-Variables/)
     4. [**Overriding `default` Variable values with `terraform.tfvars` file**](09-Terraform-Variables/09-01-Terraform-Variables-tfvars/)
     5. [**Overriding `default` Variable values with different `.tfvars` using *`-var-file`* Option**](09-Terraform-Variables/09-02-Terraform-Variables-tfvars-var-file/)
+    6. [**Terraform Variables type *list***](09-Terraform-Variables/09-03-Terraform-Variables-list/)
+    7. [**Terraform Variables type *map***](09-Terraform-Variables/09-04-Terraform-Variables-map/)
 
 
 
