@@ -37,7 +37,7 @@ Here's what changed:
 
 - **Type Declaration (type)**: It is now specified as *`map(string)`*, indicating that the variable is expected to be a *`map`* of strings.
 
-- **Default Value (default)**: The default value is now specified as below, indicating that by default, it's a *`map`* containing a three string element, which is element["tmicro"]="t2.micro", element["tsmall"]="t2.small, and element["tlarge"]="t2.large".
+- **Default Value (default)**: The default value is now specified as below, indicating that by default, it's a *`map`* containing a three string element, which is *element["tmicro"]="t2.micro", element["tsmall"]="t2.small, and element["tlarge"]="t2.large"*.
     ```hcl
     default = {
     tmicro   = "t2.micro"
