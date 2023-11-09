@@ -19,13 +19,17 @@ variable "ec2_instance_type" {
 ```
 
 To utilize a list as a complex type constructor for *instance_type*, you can modify it like this:
-### List type
+### *map* type
 
 ```hcl
 variable "ec2_instance_type" {
-    description = "EC2 Instance Types"
-    type        = map(string)
-    default     = [tmicro = "t2.micro", tsmall = "t2.small", tlarge = "t2.large"]
+  description = "EC2 Instance Type"
+  type        = map(string)
+  default = {
+    tmicro   = "t2.micro"
+    tsmall   = "t2.small"
+    tlarge   = "t2.large"
+  }
 }
 ```
 
