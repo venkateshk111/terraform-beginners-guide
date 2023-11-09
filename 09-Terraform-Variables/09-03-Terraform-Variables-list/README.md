@@ -40,12 +40,11 @@ Here's what changed:
 
 - In order to use this list type variable in [01_ec2.tf](./01_ec2.tf) you will have to call it using below syntax
 
-```hcl
-instance_type = var.ec2_instance_type[0] # for t2.micro
-instance_type = var.ec2_instance_type[1] # for t2.small
-instance_type = var.ec2_instance_type[2] # for t3.large
-
-```
+    ```hcl
+    instance_type = var.ec2_instance_type[0] # for t2.micro
+    instance_type = var.ec2_instance_type[1] # for t2.small
+    instance_type = var.ec2_instance_type[2] # for t3.large
+    ```
 
 - **Example**:  
 
