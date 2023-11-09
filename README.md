@@ -46,9 +46,9 @@
     5. [***`lifecycle`***](08-Terraform-Resource-Meta-Arguments/08-05-lifecycle/)
 
 - ### [09-Terraform-Variables](09-Terraform-Variables) - Terraform Variables
-    1. [**Terraform Variables with `default` Option**](09-Terraform-Variables/09-01-Terraform-Variables-tfvars/)
-    2. [**Overriding `default` Variable values with `-var` Option**](09-Terraform-Variables/09-01-Terraform-Variables-tfvars/)
-    3. [**Overriding `default` Variable values with `Environment Variables` Options**]((09-Terraform-Variables/09-01-Terraform-Variables-tfvars/))
+    1. [**Terraform Variables with `default` Option**](09-Terraform-Variables/)
+    2. [**Overriding `default` Variable values with `-var` Option**](09-Terraform-Variables/)
+    3. [**Overriding `default` Variable values with `Environment Variables` Options**](09-Terraform-Variables/)
     4. [**Overriding `default` Variable values with `terraform.tfvars` file**](09-Terraform-Variables/09-01-Terraform-Variables-tfvars/)
     5. [**Overriding `default` Variable values with different `.tfvars` using *`-var-file`* Option**](09-Terraform-Variables/09-02-Terraform-Variables-tfvars-var-file/)
 
