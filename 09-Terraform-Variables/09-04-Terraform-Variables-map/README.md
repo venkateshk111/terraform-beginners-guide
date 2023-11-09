@@ -227,5 +227,5 @@ Here's what changed:
 
 [Types and Values](https://developer.hashicorp.com/terraform/language/expressions/types)
 
-[Type Constraints *list*](https://developer.hashicorp.com/terraform/language/values/variables#list)
+[Type Constraints *map*](https://developer.hashicorp.com/terraform/language/expressions/types#map)
 
