@@ -120,7 +120,7 @@ In Terraform, you can create multiple `.tfvars` to meet you environment specific
     ```
 
 
-- In the above example, We've defined five variables: 
+- In the above example, We've defined six variables: 
     1. `aws_region`: default AWS Region to be used
     2. `owner`: Name of the Engineer who is creating Resources
     3. `ec2_ami`: AWS EC2 AMI
