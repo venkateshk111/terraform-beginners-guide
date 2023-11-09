@@ -19,7 +19,7 @@ variable "ec2_ami" {
 variable "ec2_instance_type" {
   description = "EC2 Instance Type"
   type        = list(string)
-  default     = ["t2.micro", "t2.small", "t3.large"]
+  default     = ["t2.micro", "t2.small", "t2.large"]
 }
 
 variable "instance_count" {

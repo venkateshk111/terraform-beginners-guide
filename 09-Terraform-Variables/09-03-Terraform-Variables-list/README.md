@@ -28,22 +28,22 @@ To utilize a list as a complex type constructor for *instance_type*, you can mod
 variable "ec2_instance_type" {
     description = "EC2 Instance Types"
     type        = list(string)
-    default     = ["t2.micro", "t2.small", "t3.large"]
+    default     = ["t2.micro", "t2.small", "t2.large"]
 }
 ```
 
 Here's what changed:
 
-- **Type Declaration (type)**: It is now specified as *`list(string)`*, indicating that the variable is expected to be a list of strings.
+- **Type Declaration (type)**: It is now specified as *`list(string)`*, indicating that the variable is expected to be a *`list`* of strings.
 
-- **Default Value (default)**: The default value is now specified as *`["t2.micro", "t2.small, "t3.large"]`*, indicating that by default, it's a list containing a three string element, which is element[0]="t2.micro", element[1]="t2.small, and element[2]="t3.large".
+- **Default Value (default)**: The default value is now specified as *`["t2.micro", "t2.small, "t2.large"]`*, indicating that by default, it's a list containing a three string element, which is element[0]="t2.micro", element[1]="t2.small, and element[2]="t2.large".
 
 - In order to use this list type variable in [01_ec2.tf](./01_ec2.tf) you will have to call it using below syntax
 
     ```hcl
     instance_type = var.ec2_instance_type[0] # for t2.micro
     instance_type = var.ec2_instance_type[1] # for t2.small
-    instance_type = var.ec2_instance_type[2] # for t3.large
+    instance_type = var.ec2_instance_type[2] # for t2.large
     ```
 
 - **Example**:  
@@ -117,7 +117,7 @@ Here's what changed:
     variable "ec2_instance_type" {
     description = "EC2 Instance Type"
     type        = list(string)
-    default     = ["t2.micro", "t2.small", "t3.large"]
+    default     = ["t2.micro", "t2.small", "t2.large"]
     }
 
     variable "instance_count" {
@@ -211,7 +211,7 @@ Here's what changed:
 
         Plan: 1 to add, 0 to change, 0 to destroy.
         ```
-- Similarly if you pass `var.ec2_instance_type[0]` or `var.ec2_instance_type[2]`, the `instance_type` will be *t2.micro* and *t3.large* respectively
+- Similarly if you pass `var.ec2_instance_type[0]` or `var.ec2_instance_type[2]`, the `instance_type` will be *t2.micro* and *t2.large* respectively
 
 
 
@@ -219,5 +219,5 @@ Here's what changed:
 
 [Types and Values](https://developer.hashicorp.com/terraform/language/expressions/types)
 
-[Type Constraints *list*](https://developer.hashicorp.com/terraform/language/values/variables#list)
+[Type Constraints *map*](https://developer.hashicorp.com/terraform/language/expressions/types#map)
 
