@@ -22,7 +22,7 @@ variable "ec2_instance_type" {
 ```
 
 To utilize a list as a complex type constructor for *instance_type*, you can modify it like this:
-### List type
+### *list* type
 
 ```hcl
 variable "ec2_instance_type" {
@@ -36,7 +36,7 @@ Here's what changed:
 
 - **Type Declaration (type)**: It is now specified as *`list(string)`*, indicating that the variable is expected to be a *`list`* of strings.
 
-- **Default Value (default)**: The default value is now specified as *`["t2.micro", "t2.small, "t2.large"]`*, indicating that by default, it's a list containing a three string element, which is element[0]="t2.micro", element[1]="t2.small, and element[2]="t2.large".
+- **Default Value (default)**: The default value is now specified as *`["t2.micro", "t2.small, "t2.large"]`*, indicating that by default, it's a list containing a three string element, which is *element[0]="t2.micro", element[1]="t2.small, and element[2]="t2.large"*.
 
 - In order to use this list type variable in [01_ec2.tf](./01_ec2.tf) you will have to call it using below syntax
 
