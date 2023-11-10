@@ -26,6 +26,7 @@
     - **Data Sources Block**
     - **Modules Block**
 
+
 - ### [05-Terraform-Commands](05-Terraform-Commands) - Basic Terraform Commands
     - *`terraform init`*
     - *`terraform validate`*
@@ -85,3 +86,18 @@
         - Security Group to allow port 22
         - Security Group to allow port 80, 443
     - Use Terraform variables where ever possible.
+
+
+<details> 
+<summary> <h3><a href="#04-Terraform-Top-Level-Blocks">04-Terraform-Top-Level-Blocks</a></h3> </summary>
+
+- **Terraform Block** (>0.13 version) or Terraform Settings Block or Terraform Configuration Block 
+- **Provider Block**
+- **Resource Block**
+- **Input Variables Block**
+- **Output Values Block**
+- **Local Values Block**
+- **Data Sources Block**
+- **Modules Block**
+
+</details>
