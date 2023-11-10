@@ -7,6 +7,7 @@
 
 - ### [02-Terraform-Configuration](01-Terraform-Configuration) - Configure Terraform
 
+<details>
 - ### [03-Terraform-Terminologies](03-Terraform-Terminologies) - Key Terraform Terminologies
     - **Provider** : Define the providers like AWS, Azure, GCP
     - **Resource** : Infrastructure Resources to be created, ex: VPC, S3, EC2
@@ -15,7 +16,7 @@
     - **Arguments** : Inputs
     - **Attributes** : Outputs
     - **Meta-Arguments** : Terraform specific Inputs ex: count, for_each,depends_on
-
+</details>
 - ### [04-Terraform-Top-Level-Blocks](04-Terraform-Top-Level-Blocks) - Terraform Top Level Blocks
     - **Terraform Block** (>0.13 version) or Terraform Settings Block or Terraform Configuration Block 
     - **Provider Block**
@@ -89,7 +90,7 @@
 
 
 <details> 
-<summary> <h3><a href="#04-Terraform-Top-Level-Blocks">04-Terraform-Top-Level-Blocks</a></h3> </summary>
+<summary> <h3><a href="04-Terraform-Top-Level-Blocks/README.md">04-Terraform-Top-Level-Blocks</a></h3> </summary>
 
 - **Terraform Block** (>0.13 version) or Terraform Settings Block or Terraform Configuration Block 
 - **Provider Block**
