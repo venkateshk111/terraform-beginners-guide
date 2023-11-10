@@ -1,5 +1,7 @@
 # Terraform
 
+![tf word cloud](./imgs/01-tf-word-cloud.png)
+
 - ### [00-Terraform-Basics](00-Terraform-Basics) - Terraform Definitions and more
 - ### [01-Terraform-Installation](01-Terraform-Installation) - Install Terraform
 
