@@ -21,14 +21,6 @@
     - Helps **catch potential misconfigurations** early in the deployment process.
     - Provides meaningful error messages for easier troubleshooting.
 
-
-********************************************************
-********************************************************
-********************************************************
-********************************************************
-
-
-
 - **Example**:  
 
     [00_provider.tf](./00_provider.tf)
