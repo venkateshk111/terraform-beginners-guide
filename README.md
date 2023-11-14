@@ -113,7 +113,7 @@
 ```hcl
 $ terraform apply -var-file 03_secrets.tfvars 
 
-Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+Terraform used the selected providers to generate the following execution plan
 + create
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
