@@ -108,14 +108,13 @@
 
 
 <details> 
-    <summary> <i>terraform apply</i> </summary>
+<summary> <i>terraform apply</i> </summary>
 
-    ```hcl
-    $ terraform apply -var-file 03_secrets.tfvars 
+```hcl
+$ terraform apply -var-file 03_secrets.tfvars 
 
-    Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
-    + create
-    Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
-    ```
-
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
++ create
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+```
 </details>
