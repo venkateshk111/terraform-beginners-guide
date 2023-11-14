@@ -59,6 +59,8 @@
     5. [**Overriding `default` Variable values with different `.tfvars` using *`-var-file`* Option**](09-Terraform-Variables/09-02-Terraform-Variables-tfvars-var-file/)
     6. [**Terraform Variables type *list***](09-Terraform-Variables/09-03-Terraform-Variables-list/)
     7. [**Terraform Variables type *map***](09-Terraform-Variables/09-04-Terraform-Variables-map/)
+    8. [**Custom Validation Rules**](/09-Terraform-Variables/09-05-Custom-Validation-Rules/)
+    9. [**Sensitive Variables**](/09-Terraform-Variables/09-06-Sensitive-Variables/)
 
 
 
