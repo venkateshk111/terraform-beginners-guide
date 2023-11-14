@@ -3,8 +3,8 @@
 ## Sensitive Input Variables
 
 - To manage sensitive input variables in Terraform, you can use the ***`sensitive`*** argument in the variable block
-- By setting *`sensitive = true`*, you indicate that the value of this variable is sensitive, and Terraform will handle it accordingly.
-- **Terraform won't display the actual values of sensitive variables** in the console or logs during plan or apply operations. Instead, it will show a placeholder ***`(sensitive value)`***
+- By setting ***`sensitive = true`***, you indicate that the value of this variable is sensitive, and Terraform will handle it accordingly.
+- **Terraform won't display the actual values of sensitive variables** in the console or logs during *plan* or *apply* operations. Instead, it will show a placeholder ***`(sensitive value)`***
 - If a sensitive variable is used in an `output` value, the **output will also be treated as sensitive**, and its value won't be displayed.
 - **Important Note :** Though Terraform helps with visibility and protection of sensitive data, you should still follow best practices for handling secrets, such as using a secrets management system (AWS Secret Manager), restricting access to sensitive information, and not hardcoding secrets directly in your configuration files.
 
@@ -97,7 +97,7 @@
     ![01-tf-apply-sen-var](./imgs/01-tf-apply-sen-var.png)
 
 - ***`terraform state file`***
-    - Please note **terraform state file `terraform.tfstate` will store the sensitive information in plain text**, so be careful on how you want to use this. 
+    - Please note **terraform state file *`terraform.tfstate`* will store the sensitive information in plain text**, so be careful on how you want to use this. 
 
     ![02-tf-state-sen-var.png](./imgs/02-tf-state-sen-var.png)
 
@@ -225,6 +225,8 @@
 
 ## References : 
 
-[Terraform Custom Conditions](https://developer.hashicorp.com/terraform/language/expressions/custom-conditions)
+[Terraform Sensitive Input Variables](https://www.hashicorp.com/blog/terraform-sensitive-input-variables)
+
+[Protect sensitive input variables](https://developer.hashicorp.com/terraform/tutorials/configuration-language/sensitive-variables)
 
 
