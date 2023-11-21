@@ -134,7 +134,8 @@ output "myec2_public_dns" {
        
        - Example of *`terraform apply`*
        - terraform apply output shows the outputs values defined under ***`output`*** blocks
-       - You can notice `myec2_private_ip` and `myec2_public_dns`, `myec2_public_ip` and `myec2_tags` output being displayed after `terraform apply` is run
+       - You can notice `myec2_private_ip` and `myec2_public_dns`, `myec2_public_ip` and `myec2_tags` output being displayed after `terraform apply` is run  
+
             ![terraform apply](./imgs/01-tf-op-apply.png)
 
 
@@ -246,3 +247,8 @@ AWS Console
  ![terraform apply](./imgs/02-aws-console.png)
 
   ![terraform apply](./imgs/03-aws-site.png)
+
+
+## References : 
+
+[Output Values](https://developer.hashicorp.com/terraform/language/values/outputs)
