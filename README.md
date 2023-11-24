@@ -62,7 +62,9 @@
     8. [**Custom Validation Rules**](/09-Terraform-Variables/09-05-Custom-Validation-Rules/)
     9. [**Sensitive Variables**](/09-Terraform-Variables/09-06-Sensitive-Variables/)
 
-- ### [10-Terraform-Outputs](10-Terraform-Outputs) - Terraform Outputs
+- ### [10-Terraform-Outputs](10-Terraform-Outputs) - Terraform Output Values
+
+- ### [11-Terraform-Data-Sources](11-Terraform-Data-Sources) - Terraform Data Sources
 
 
 
