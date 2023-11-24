@@ -62,7 +62,7 @@
     8. [**Custom Validation Rules**](/09-Terraform-Variables/09-05-Custom-Validation-Rules/)
     9. [**Sensitive Variables**](/09-Terraform-Variables/09-06-Sensitive-Variables/)
 
-
+- ### [10-Terraform-Outputs](10-Terraform-Outputs) - Terraform Outputs
 
 
 
@@ -78,6 +78,7 @@
         - Terraform resource behavior for  in place update (add tag) destroy and recreate (change AZ)
     - 08-Terraform-Resource-Meta-Arguments
         - *for_each* for set creating iam user notes
+    - 11-Terraform-local-values
 
 - #### Revise following
     - terraform dependency file ?
