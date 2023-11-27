@@ -29,7 +29,6 @@ Terraform is an open-source Infrastructure as Code (IaC) tool developed by Hashi
 - The infrastructure Terraform can manage includes low-level components such as **compute instances, storage, and networking**, as well as high-level components such as DNS entries, SaaS features, etc.
 
 
-
 - **Declarative Configuration:** Terraform uses declarative syntax, where you define the desired state of your infrastructure. It then determines the necessary actions to bring the actual infrastructure to that state.
 
 - **Infrastructure as Code (IaC):** Terraform enables you to manage and version your infrastructure as code, providing the benefits of version control, collaboration, and repeatability.
@@ -42,6 +41,53 @@ Terraform is an open-source Infrastructure as Code (IaC) tool developed by Hashi
 - **Infrastructure Versioning:** Since Terraform configurations are code, you can version control them using tools like Git. This facilitates collaboration, rollback to previous states, and tracking changes over time.
 
 - **State Management:** Terraform maintains a state file that keeps track of the current state of your infrastructure. This state is crucial for understanding what Terraform has created and managing changes to the infrastructure.
+
+
+## How does Terraform work?
+
+- Terraform creates and manages resources on cloud platforms and other services **through their application programming interfaces (APIs)**. 
+- **Providers** enable Terraform to work with virtually any platform or service with an accessible API.
+
+    ![01-tf-works](./imgs/01-tf-works.avif)
+
+## Terraform workflow
+
+1. **Write Infrastructure Code (HCL):**
+
+- You start by **writing Terraform configuration files using HashiCorp Configuration Language (HCL)**. 
+- These files **define the infrastructure components** you want to create, such as virtual machines, networks, or storage.
+
+2. **Initialize:**
+
+- Run the ***`terraform init`*** command in the directory where your configuration files are located. 
+- This command downloads the necessary providers and sets up the backend to store the Terraform state.
+
+3. **Plan:**
+
+- Execute ***`terraform plan`*** to preview the changes Terraform will make to your infrastructure. It doesn't make any changes yet; it just shows you what will happen. 
+- This is a safety check before making any modifications.
+
+4. **Apply:**
+
+- If the plan looks good, you can apply the changes using ***`terraform apply`***. 
+- Terraform will prompt you to confirm that you want to make the proposed changes. If you're satisfied, type **"yes,"** and Terraform will create or update your infrastructure according to the configuration.
+
+5. **Review and Iterate:**
+
+- After applying the changes, you can review the outputs and make any necessary adjustments to your configuration. 
+- If you need to make changes, go back to **step 3 (plan)** and then apply again.
+
+6. **Destroy (Optional):**
+
+- If you want to tear down the infrastructure created by Terraform, you can use ***`terraform destroy`***. 
+- This command will prompt you to confirm the destruction of resources defined in your configuration.
+
+7. **Version Control:**
+
+- It's a good practice to use version control (e.g., Git) to manage your Terraform configurations. 
+- This helps track changes, collaborate with others, and roll back to previous versions if needed.
+
+    ![02-tf-workflow](./imgs/02-tf-workflow.avif)
 
 
 <!-- 
