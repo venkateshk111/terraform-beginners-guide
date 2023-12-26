@@ -2,8 +2,7 @@
 
 <img alt="Terraform" src="https://www.datocms-assets.com/2885/1629941242-logo-terraform-main.svg" width="600px">  
 
-## 
-![tf word cloud](./imgs/01-tf-word-cloud.png) 
+<!-- ![tf word cloud](./imgs/01-tf-word-cloud.png)  -->
 
 - ### [00-Terraform-Basics](00-Terraform-Basics) - Terraform Definitions and more
 - ### [01-Terraform-Installation](01-Terraform-Installation) - Install Terraform
