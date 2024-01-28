@@ -139,7 +139,8 @@ data "aws_ami" "amzn_linux_2023_latest" {
 - Filtering with similar pattern on AWS Console you should see,
 
     AWS launch Console:
-        ![aws-console-ami-id](./imgs/01-dr-aws-launch-console-ami-id.png)
+        ![aws-console-ami-id](./imgs/01-dr-aws-launch-console-ami-id.png)  
+        
     AWS Public AMI Console (EC2 Page ==> AMI):
         ![aws-console-ami-id](./imgs/00-dr-aws-console-ami-id.png)
 
