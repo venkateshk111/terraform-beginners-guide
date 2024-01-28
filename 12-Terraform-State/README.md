@@ -29,4 +29,9 @@
 
 Terraform State : https://developer.hashicorp.com/terraform/language/state
 
-Terraform State : [https://developer.hashicorp.com/terraform/language/state](https://developer.hashicorp.com/terraform/language/state)
+<!-- Terraform State : [https://developer.hashicorp.com/terraform/language/state](https://developer.hashicorp.com/terraform/language/state) -->
+
+Terraform State : <a href="https://developer.hashicorp.com/terraform/language/state" target="_blank">https://developer.hashicorp.com/terraform/language/state</a>
+
+
+
