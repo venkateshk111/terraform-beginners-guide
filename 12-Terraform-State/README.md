@@ -12,11 +12,11 @@
 
 ### Purpose of the State File:
 
-1. **Tracking Resources**: **Stores the current state of defined resources** with details like resource IDs and IP addresses.
+1. **Tracking Resources**: Stores the current state of defined resources with details like resource IDs and IP addresses.
 
-2. **Dependency Management**: **Manages dependencies between resources**, ensuring correct application order for changes.
+2. **Dependency Management**: Manages dependencies between resources, ensuring correct application order for changes.
 
-3. **Concurrency and Locking**: **Handles concurrent access by using state locks to prevent conflicts**.
+3. **Concurrency and Locking**: Handles concurrent access by using state locks to prevent conflicts.
 
 ### State File Location:
 
