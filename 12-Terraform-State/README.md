@@ -20,9 +20,9 @@
 
 ### State File Location:
 
-- By default, the state file is stored locally in the same directory. 
+- By default, the state file is **stored locally in the same directory**. 
 - For large Enterprise Infrastructure, it's recommended to use ***remote backends*** (**AWS S3, Azure Storage, terraform Cloud** etc.) to enable collaboration and avoid local state file issues.
-- Using a remote backend enhances security, collaboration, and version control in Terraform workflows.
+- Using a **remote backend enhances security, collaboration, and version control** in Terraform workflows.
 
 
 ## References : 
