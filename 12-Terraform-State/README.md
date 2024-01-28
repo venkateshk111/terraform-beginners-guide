@@ -25,3 +25,8 @@
 - Using a remote backend enhances security, collaboration, and version control in Terraform workflows.
 
 
+## References : 
+
+Terraform State : https://developer.hashicorp.com/terraform/language/state
+
+Terraform State : [https://developer.hashicorp.com/terraform/language/state](https://developer.hashicorp.com/terraform/language/state)
