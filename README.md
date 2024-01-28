@@ -68,6 +68,8 @@
 
 - ### [11-Terraform-Data-Sources](11-Terraform-Data-Sources) - Terraform Data Sources
 
+- ### [12-Terraform-State](12-Terraform-State) - Terraform State
+
 
 
 
