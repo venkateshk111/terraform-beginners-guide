@@ -47,7 +47,7 @@
     - Ex: **tf-aws-backend** ( Buckets names are unique, so choose unique name of your choice)
     ![state-aws-console-s3-bucket](./imgs/00-state-aws-console-s3-bucket.png)
 
-2. Create folder *tf/dev* (you can choose any name of your choice) here *tf/dev* only mean its terraform and dev environment
+2. Create folder **tf/dev** (you can choose any name of your choice) here **tf/dev** only mean its terraform and dev environment
     - ![state-aws-console-s3-folder](./imgs/01-state-aws-console-s3-folder.png)
 
 3. [Create a DynamoDB table](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/getting-started-step-1.html) for facilitating state file locking
