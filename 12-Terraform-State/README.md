@@ -41,26 +41,41 @@
 - **Version Controlled** : Take advantage of S3 versioning
 - **Durability and Availability**: AWS S3 ensures automatic durability and availability for state files.
 
-### Implementing AWS S3 as a Remote State Backend:
+### Implementing AWS S3 as a Remote State Backend and DynamoDB for State locking:
 
-1. [Create S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html) on your AWS Account
+1. [Create S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html) on your AWS Account. 
+    - Ex: **tf-aws-backend** ( Buckets names are unique, so choose unique name of your choice)
+    ![state-aws-console-s3-bucket](./imgs/00-state-aws-console-s3-bucket.png)
+
 2. Create folder *tf/dev* (you can choose any name of your choice) here *tf/dev* only mean its terraform and dev environment
+    - ![state-aws-console-s3-folder](./imgs/01-state-aws-console-s3-folder.png)
+
 3. [Create a DynamoDB table](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/getting-started-step-1.html) for facilitating state file locking
-3. use terraform *`backend`* block to configure remote state 
+    - Table Name: **tf-dev-state-lock**
+    - Partition key (Primary Key): **LockID** (Type as String)
+    - Table settings: Use default settings (checked)
+
+    - ![state-aws-console-dyDB-table](./imgs/02-state-aws-console-dyDB-table.png)
+
+4. use terraform *`backend`* block to configure remote state 
+
+**Syntax**: 
 
 ```hcl
 terraform {
   backend "s3" {
-    bucket         = "my-terraform-state-bucket"
-    key            = "path/to/my/key"
+    bucket         = "tf-aws-backend"
+    key            = "tf/dev/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
-    dynamodb_table = "terraform-lock-table"
+    dynamodb_table = "tf-dev-state-lock"
   }
 }
 ```
 
 **Example**: 
+
+
 
 
 
