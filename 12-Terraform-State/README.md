@@ -74,10 +74,204 @@ terraform {
 ```
 
 **Example**: 
+- Lets Create A Simple VPC and observe terraform state behavior with S3 and DynamoDB
 
 
+[00_provider.tf](./00_provider.tf)
+
+```hcl
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.aws_region
+
+  default_tags {
+    tags = {
+      Terraform = "yes"
+      Owner     = var.owner
+    }
+  }
+}
+```
+
+[01_backend.tf](./02_variables.tf)
+
+```hcl
+terraform {
+  backend "s3" {
+    bucket         = "tf-aws-backend"
+    key            = "tf/dev/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "tf-dev-state-lock"
+  }
+}
+```
+
+[02_variables.tf](./02_variables.tf)
+
+```hcl
+variable "aws_region" {
+  description = "AWS Region In Which Resources will be Created"
+  type        = string
+  default     = "us-east-1"
+}
+
+variable "owner" {
+  description = "Name of the Engineer who is creating Resources"
+  type        = string
+  default     = "Venkatesh"
+}
+
+```
+
+[03_vpc.tf](./03_vpc.tf)
+
+```hcl
+resource "aws_vpc" "myvpc" {
+  cidr_block = "10.0.0.0/16"
+
+  tags = {
+    Name = "MyVPC"
+  }
+}
+```
+
+- In the above example, We are trying to Create A Simple VPC and observe terraform state behavior with S3 and DynamoDB  
+
+    1\. `cidr_block` = `10.0.0.0/16`, is the VPC CIDR  
+
+- Lets Execute Terraform commands to understand data source behavior
+
+    1. ***`terraform init`*** : *Initialize* terraform
+    2. ***`terraform validate`*** : *Validate* terraform code
+    3. ***`terraform fmt`*** : *format* terraform code
+    4. ***`terraform plan`*** : *Review* the terraform plan
+    5. ***`terraform apply`*** : *Create* Resources by terraform
+
+- For Comparison Im also running similar code without S3 as backend and see how terraform behaves in each case.
+
+  - ***`terraform init`*** : 
+
+    ![terraform init](./imgs/03-state-tf-init.png)
+
+    | Type                      | Local                           | Remote                                   |
+    |---------------------------|---------------------------------|------------------------------------------|
+    | **Backend**               | Not explicitly mentioned        | Configured with "s3"                     |
+    | **Backend Initialization**| Local initialization message  | Successfully configured the backend "s3"!|
+
+  - ***`terraform plan`*** : 
+
+    ![terraform plan](./imgs/04-state-tf-plan.png)
+
+    | Type              | Local            | Remote                                        |
+    |-------------------|------------------|-----------------------------------------------|
+    | **State Locking** | No State Locking | ***Acquires*** and ***Releases***  state lock |
+
+  - ***`terraform Apply`*** : 
+
+    ![terraform plan](./imgs/05-state-tf-apply.png)
+
+    | Type              | Local            | Remote                                        |
+    |-------------------|------------------|-----------------------------------------------|
+    | **State Locking** | No State Locking | ***Acquires*** and ***Releases***  state lock |
+
+  - **`terraform State File`** : 
+
+    ![terraform state file](./imgs/06-state-tf-file.png)
+
+    | Type                    | Local          | Remote                       |
+    |-------------------------|----------------|------------------------------|
+    | **State File Location** | Stored Locally | Stored remotely in S3 Bucket |
+
+    <details> 
+    <summary> <i>terraform apply</i> </summary>
+    ```hcl
+        PS C:\Users\Venkatesh\Desktop\tf-state\remote> terraform apply -auto-approve
+    Acquiring state lock. This may take a few moments...
+
+    Terraform used the selected providers to generate the following execution plan.
+          + enable_network_address_usage_metrics = (known after apply)
+          + id                                   = (known after apply)
+          + instance_tenancy                     = "default"
+          + ipv6_association_id                  = (known after apply)
+          + ipv6_cidr_block                      = (known after apply)
+          + ipv6_cidr_block_network_border_group = (known after apply)
+          + main_route_table_id                  = (known after apply)
+          + owner_id                             = (known after apply)
+          + tags                                 = {
+              + "Name" = "MyVPC"
+            }
+          + tags_all                             = {
+              + "Name"      = "MyVPC"
+              + "Owner"     = "Venkatesh"
+              + "Terraform" = "yes"
+            }
+        }
+
+    Plan: 1 to add, 0 to change, 0 to destroy.
+    aws_vpc.myvpc: Creating...
+    aws_vpc.myvpc: Creation complete after 4s [id=vpc-07373ab2888ce500a]
+    Releasing state lock. This may take a few moments...
+    ```
+    </details>
+
+ - You can now find AWS Console the VPC with CIDR 10.0.0.0/16 created.
+
+    ![MyVPC](./imgs/07-state-aws-console-vpc.png)
+
+  - ***`terraform Destroy`*** : 
+
+    ![terraform plan](./imgs/08-state-tf-destory.png)
+
+    | Type              | Local            | Remote                                        |
+    |-------------------|------------------|-----------------------------------------------|
+    | **State Locking** | No State Locking | ***Acquires*** and ***Releases***  state lock |
 
 
+    <details> 
+    <summary> <i>terraform destroy</i> </summary>
+    ```hcl
+    PS C:\Users\Venkatesh\Desktop\tf-state\remote> terraform destroy -auto-approve
+    Acquiring state lock. This may take a few moments...
+    aws_vpc.myvpc: Refreshing state... [id=vpc-07373ab2888ce500a]
+
+    Terraform used the selected providers to generate the following execution plan.
+    Resource actions are indicated with the following symbols:
+    t-7c9cef04" -> null
+          - enable_dns_hostnames                 = false -> null
+          - enable_dns_support                   = true -> null
+          - enable_network_address_usage_metrics = false -> null
+          - id                                   = "vpc-07373ab2888ce500a" -> null   
+          - instance_tenancy                     = "default" -> null
+          - ipv6_netmask_length                  = 0 -> null
+          - main_route_table_id                  = "rtb-070a25390579b3351" -> null   
+          - owner_id                             = "520974589522" -> null
+          - tags                                 = {
+              - "Name" = "MyVPC"
+            } -> null
+          - tags_all                             = {
+              - "Name"      = "MyVPC"
+              - "Owner"     = "Venkatesh"
+              - "Terraform" = "yes"
+            } -> null
+        }
+
+    Plan: 0 to add, 0 to change, 1 to destroy.
+    aws_vpc.myvpc: Destroying... [id=vpc-07373ab2888ce500a]
+    aws_vpc.myvpc: Destruction complete after 1s
+    Releasing state lock. This may take a few moments...
+
+    Destroy complete! Resources: 1 destroyed.
+    PS C:\Users\Venkatesh\Desktop\tf-state\remote>
+    ```
+    </details>
 
 ## References : 
 
