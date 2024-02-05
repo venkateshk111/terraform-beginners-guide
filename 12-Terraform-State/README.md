@@ -155,7 +155,7 @@ resource "aws_vpc" "myvpc" {
     4. ***`terraform plan`*** : *Review* the terraform plan
     5. ***`terraform apply`*** : *Create* Resources by terraform
 
-- For Comparison Im also running similar code [local](./tf-state-demo-files/local/) without S3 as backend and see how terraform behaves in each case.
+- For Comparison Im also running similar code ([local](./tf-state-demo-files/local/)) without S3 as backend and see how terraform behaves in each case.
 
   - **`terraform files`** : 
 
