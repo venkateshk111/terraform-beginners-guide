@@ -235,7 +235,7 @@ resource "aws_vpc" "myvpc" {
 
     ![MyVPC](./imgs/07-state-aws-console-vpc.png)
 
-  - ***`terraform Destroy`*** : 
+  - ***`terraform Destroy`*** : ** for testing and cleanup only ** , Do Not Use or use it with caution *destroy* command for your real infrastructure
 
     ![terraform plan](./imgs/08-state-tf-destory.png)
 
