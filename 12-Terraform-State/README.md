@@ -157,6 +157,14 @@ resource "aws_vpc" "myvpc" {
 
 - For Comparison Im also running similar code without S3 as backend and see how terraform behaves in each case.
 
+  - **`terraform files`** : 
+
+    ![terraform files](./imgs/03-state-tf-files.png)
+
+    | Type              | Local           | Remote                     |
+    |-------------------|-----------------|----------------------------|
+    | **Backend File**  | No backend File | 01_backend.tf backend file |
+
   - ***`terraform init`*** : 
 
     ![terraform init](./imgs/03-state-tf-init.png)
@@ -164,7 +172,7 @@ resource "aws_vpc" "myvpc" {
     | Type                      | Local                           | Remote                                   |
     |---------------------------|---------------------------------|------------------------------------------|
     | **Backend**               | Not explicitly mentioned        | Configured with "s3"                     |
-    | **Backend Initialization**| Local initialization message  | Successfully configured the backend "s3"!|
+    | **Backend Initialization**| Local initialization message  | Successfully configured the backend "s3"!  |
 
   - ***`terraform plan`*** : 
 
