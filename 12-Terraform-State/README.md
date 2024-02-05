@@ -27,10 +27,10 @@
 
 ## Local State vs. Remote State
 
-| **Type**                  | **Local State**                                | **Remote State (AWS S3)**                          |
-|---------------------------|------------------------------------------------|----------------------------------------------------|
-| **Location**              | Stored **locally** in the project directory.   | Stored in a **remote** backend, e.g., AWS S3.      |
-| **Concurrency**           | Not suitable for collaboration. Lacks locking. | **Enables collaboration** with backend locking.    |
+| **Type**                  | **Local State**                                | **Remote State (AWS S3)**                            |
+|---------------------------|------------------------------------------------|------------------------------------------------------|
+| **Location**              | Stored **locally** in the project directory.   | Stored in a **remote** backend, e.g., AWS S3.        |
+| **Concurrency**           | Not suitable for collaboration. Lacks locking. | **Enables collaboration** with backend locking.      |
 | **Security**              | Sensitive information may be exposed.          | **Fine-grained access** control with AWS IAM policies. |
 | **Backups**               | Prone to **accidental deletion** or loss.      | **Version Controlled**, Automatic durability & availability with S3.|
 
