@@ -163,7 +163,7 @@ resource "aws_vpc" "myvpc" {
 
     | Type              | Local           | Remote                     |
     |-------------------|-----------------|----------------------------|
-    | **Backend File**  | No backend File | 01_backend.tf backend file |
+    | **Backend File**  | No backend ile | 01_backend.tf backend file |
 
   - ***`terraform init`*** : 
 
@@ -198,8 +198,9 @@ resource "aws_vpc" "myvpc" {
     |-------------------------|----------------|------------------------------|
     | **State File Location** | Stored Locally | Stored remotely in S3 Bucket |
 
-    <details> 
-    <summary> <i>terraform apply</i> </summary>
+  <details> 
+  <summary> <i>terraform apply</i> </summary>
+    
     ```hcl
         PS C:\Users\Venkatesh\Desktop\tf-state\remote> terraform apply -auto-approve
     Acquiring state lock. This may take a few moments...
@@ -228,7 +229,7 @@ resource "aws_vpc" "myvpc" {
     aws_vpc.myvpc: Creation complete after 4s [id=vpc-07373ab2888ce500a]
     Releasing state lock. This may take a few moments...
     ```
-    </details>
+  </details>
 
  - You can now find AWS Console the VPC with CIDR 10.0.0.0/16 created.
 
@@ -245,6 +246,7 @@ resource "aws_vpc" "myvpc" {
 
     <details> 
     <summary> <i>terraform destroy</i> </summary>
+    
     ```hcl
     PS C:\Users\Venkatesh\Desktop\tf-state\remote> terraform destroy -auto-approve
     Acquiring state lock. This may take a few moments...
