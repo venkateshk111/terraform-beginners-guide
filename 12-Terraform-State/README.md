@@ -101,7 +101,7 @@ provider "aws" {
 }
 ```
 
-[01_backend.tf](./02_variables.tf)
+[01_backend.tf](./01_backend.tf)
 
 ```hcl
 terraform {
@@ -155,7 +155,7 @@ resource "aws_vpc" "myvpc" {
     4. ***`terraform plan`*** : *Review* the terraform plan
     5. ***`terraform apply`*** : *Create* Resources by terraform
 
-- For Comparison Im also running similar code without S3 as backend and see how terraform behaves in each case.
+- For Comparison Im also running similar code [local](./tf-state-demo-files/local/) without S3 as backend and see how terraform behaves in each case.
 
   - **`terraform files`** : 
 
@@ -163,7 +163,7 @@ resource "aws_vpc" "myvpc" {
 
     | Type              | Local           | Remote                     |
     |-------------------|-----------------|----------------------------|
-    | **Backend File**  | No backend ile | 01_backend.tf backend file |
+    | **Backend File**  | No backend file | [*01_backend.tf*](./01_backend.tf) backend file |
 
   - ***`terraform init`*** : 
 
@@ -172,7 +172,7 @@ resource "aws_vpc" "myvpc" {
     | Type                      | Local                           | Remote                                   |
     |---------------------------|---------------------------------|------------------------------------------|
     | **Backend**               | Not explicitly mentioned        | Configured with "s3"                     |
-    | **Backend Initialization**| Local initialization message  | Successfully configured the backend "s3"!  |
+    | **Backend Initialization**| Local initialization message    | Successfully configured the backend "s3"!  |
 
   - ***`terraform plan`*** : 
 
@@ -196,7 +196,7 @@ resource "aws_vpc" "myvpc" {
 
     | Type                    | Local          | Remote                       |
     |-------------------------|----------------|------------------------------|
-    | **State File Location** | Stored Locally | Stored remotely in S3 Bucket |
+    | **State File Location** | Stored *locally* | Stored *remotely* in S3 Bucket |
 
   <details> 
   <summary> <i>terraform apply</i> </summary>
@@ -246,7 +246,7 @@ resource "aws_vpc" "myvpc" {
 
     <details> 
     <summary> <i>terraform destroy</i> </summary>
-    
+
     ```hcl
     PS C:\Users\Venkatesh\Desktop\tf-state\remote> terraform destroy -auto-approve
     Acquiring state lock. This may take a few moments...
