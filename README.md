@@ -87,7 +87,7 @@
     - 08-Terraform-Resource-Meta-Arguments
         - *for_each* for set creating iam user notes
     - 11-Terraform-local-values
-    - 12-Terraform-Show
+    - 13-Terraform-Show
 
 - #### Revise following
     - terraform dependency file ?
