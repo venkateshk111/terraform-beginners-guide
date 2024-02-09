@@ -72,6 +72,8 @@
 
 - ### [13-Terraform-Show](13-Terraform-Show) - Terraform Show (need to update)
 
+- ### [14-Terraform-Refresh](14-Terraform-Refresh) - Terraform Refresh Desired and Current state sync
+
 
 
 
