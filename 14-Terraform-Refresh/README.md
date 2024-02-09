@@ -2,11 +2,11 @@
 
 ## Terraform *`refresh`* command
 
-- The *`terraform refresh`* command is used to **update the state file of your Terraform project (desired state) with the real-world infrastructure (current state)**. 
+- The *`terraform refresh`* command is used to **update the state file of your terraform project (desired state) with the real-world infrastructure (current state)**. 
 - When you run *`terraform refresh`* command, Terraform **queries the actual state** of your infrastructure and **compares it with the state file** that it maintains locally or remotely.
--  The *`terraform refresh`* command synchronizes the Terraform state with the real-world state of your infrastructure.
+-  The *`terraform refresh`* command **synchronizes the Terraform state with the real-world state of your infrastructure**.
 
-### What happens when you run *`terraform refresh`* command
+### What happens when you run *`terraform refresh`* command ?
 
 1. **Queries Infrastructure**: Terraform communicates with the provider (e.g., AWS, Azure) to retrieve the current state of all resources defined in your configuration.
 
@@ -14,7 +14,7 @@
 
 3. **Updates State File**: Any differences found between the real-world infrastructure and the state file are updated in the state file.
 
-4. **Doesn't Modify Infrastructure**: Unlike `terraform apply`, `terraform refresh` only updates the state file and does not make any changes to the actual infrastructure.
+4. **Doesn't Modify Infrastructure**: Unlike `terraform apply`, `terraform refresh` **only updates the state file** and **does not make any changes** to the actual infrastructure.
 
 ### When to use *`terraform refresh`* command
 
@@ -24,7 +24,7 @@
 
 
 **Example**: 
-- Lets Create A Simple VPC and observe terraform state behavior with S3 and DynamoDB
+- Lets Create A Simple VPC and learn about `terraform refresh` command
 
 
 [00_provider.tf](./00_provider.tf)
@@ -95,9 +95,8 @@ resource "aws_vpc" "myvpc" {
 
 - In the above example, 
     - We are trying to Create A Simple VPC via terraform
-    - Manually add additional tag to VPC
+    - Manually add additional tag `Department = FinOps` to VPC from AWS Console
     - Observe the behavior w.r.t terraform refresh  
-
 
 - Lets Execute Terraform commands to understand data source behavior
 
@@ -240,7 +239,9 @@ resource "aws_vpc" "myvpc" {
     }        
     ```
 
-- **Please Note** : *`terraform refresh`* command only updates the state file and does not really import the new changes to existing code, if you want to include the new changes into the code as well than you will have to update the code manually as well.
+- **Please Note** : 
+    - *`terraform refresh`* command **only updates the state file** and **does not really import the new changes to existing code**.
+    - If you want to include the new changes into the code as well than you will have to update the code manually as well.
 
 - ***`terraform plan`*** : Would still detects the change and implies to remove the manual changes, running *`terraform apply`* will certainly remove any manual changes into infra. 
 
@@ -273,11 +274,11 @@ resource "aws_vpc" "myvpc" {
 
 - So to conclude, if you have any manual changes to your AWS infrastructure than you have 2 Choices to make  
 
-    1\. If you do not want the manual changes , you can run `terraform apply`* and it will certainly remove any manual changes into infra. 
+    1\. If you **do not want the manual changes**, you can run *`terraform apply`* and it will certainly remove any manual changes into infra. 
     
-    2\. If you want to retain the manual changes, than you will have to update your terraform code as well to incorporate the same changes.
+    2\. If you **want to retain the manual changes**, than you will have to update your terraform code as well to incorporate the same changes.
 
-    Example : Lets update new tag `Department = FinOps` to our 03_vpc.tf file. and run *`terraform plan`* again 
+    Example : Lets update new tag `Department = FinOps` to our *03_vpc.tf* file and run *`terraform plan`* again 
 
     ```hcl
     resource "aws_vpc" "myvpc" {
