@@ -74,6 +74,8 @@
 
 - ### [14-Terraform-Refresh](14-Terraform-Refresh) - Terraform Refresh Desired and Current state sync
 
+- ### [15-Terraform-State-Commands](15-Terraform-State-Commands) - Inspect, Modify, and Manage the Terraform state
+
 
 
 
