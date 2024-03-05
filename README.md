@@ -76,6 +76,9 @@
 
 - ### [15-Terraform-State-Commands](15-Terraform-State-Commands) - Inspect, Modify, and Manage the Terraform state
 
+- ### [16-Terraform-Workspaces](16-Terraform-Workspaces) - Manage multiple sets of infrastructure (dev, uat, pre, and prd) with the same Terraform configuration
+
+
 
 
 
