@@ -78,6 +78,9 @@
 
 - ### [16-Terraform-Workspaces](16-Terraform-Workspaces) - Manage multiple sets of infrastructure (dev, uat, pre, and prd) with the same Terraform configuration
 
+- ### [17-Terraform-Modules](17-Terraform-Modules) - Reusable terraform codes
+
+
 
 
 
