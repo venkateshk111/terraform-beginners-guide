@@ -11,7 +11,7 @@
 
 Following commands help you manage and switch between different environments or configurations easily.
 
-- - *`terraform workspace --help`* : print help message for workspace commands
+- *`terraform workspace --help`* : print help message for workspace commands
 
 
 - *`terraform workspace new <name>`*: Creates a new workspace.
