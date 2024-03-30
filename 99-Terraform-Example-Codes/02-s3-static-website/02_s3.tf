@@ -47,7 +47,7 @@ resource "aws_s3_object" "index" {
   bucket       = aws_s3_bucket.mybucket.bucket
   key          = "index.html"
   source       = "website-files/index.html"
-  content_type = "text/html" # this will ensure the website will open as web portal instead of downloading the index.html file 
+  content_type = "text/html" 
 }
 
 #Step 6: Configure an error document
@@ -55,5 +55,5 @@ resource "aws_s3_object" "error" {
   bucket       = aws_s3_bucket.mybucket.bucket
   key          = "error.html"
   source       = "website-files/error.html"
-  content_type = "text/html" # this will ensure the website will open as web portal instead of downloading the index.html file 
+  content_type = "text/html" 
 }
