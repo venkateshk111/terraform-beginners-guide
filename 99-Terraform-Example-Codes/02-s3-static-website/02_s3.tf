@@ -1,6 +1,6 @@
 # Step 1: Create a bucket
 resource "aws_s3_bucket" "mybucket" {
-    bucket = var.bucket_name
+  bucket = var.bucket_name
 }
 
 # Step 2: Enable static website hosting
@@ -29,7 +29,7 @@ resource "aws_s3_bucket_public_access_block" "public_access" {
 # Step 4: Add a bucket policy that makes your bucket content publicly available
 resource "aws_s3_bucket_policy" "public_read" {
   bucket = aws_s3_bucket.mybucket.id
-    policy = jsonencode({
+  policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
       {
@@ -44,16 +44,16 @@ resource "aws_s3_bucket_policy" "public_read" {
 
 # Step 5: Configure an index document
 resource "aws_s3_object" "index" {
-  bucket = aws_s3_bucket.mybucket.bucket
-  key    = "index.html"
-  source = "website-files/index.html"
+  bucket       = aws_s3_bucket.mybucket.bucket
+  key          = "index.html"
+  source       = "website-files/index.html"
   content_type = "text/html" # this will ensure the website will open as web portal instead of downloading the index.html file 
 }
 
 #Step 6: Configure an error document
 resource "aws_s3_object" "error" {
-  bucket = aws_s3_bucket.mybucket.bucket
-  key    = "error.html"
-  source = "website-files/error.html"
+  bucket       = aws_s3_bucket.mybucket.bucket
+  key          = "error.html"
+  source       = "website-files/error.html"
   content_type = "text/html" # this will ensure the website will open as web portal instead of downloading the index.html file 
 }
