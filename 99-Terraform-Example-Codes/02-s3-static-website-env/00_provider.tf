@@ -14,7 +14,7 @@ provider "aws" {
   default_tags {
     tags = {
       terraform = "yes"
-      project = "terraform-learning"
+      project   = "terraform-learning"
     }
   }
 }

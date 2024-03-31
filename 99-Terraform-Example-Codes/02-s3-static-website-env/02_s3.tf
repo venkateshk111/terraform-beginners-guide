@@ -1,6 +1,6 @@
 # Step 1: Create a bucket
 resource "aws_s3_bucket" "mybucket" {
-  bucket = format("%s-%s", var.bucket_name, var.env)
+  bucket        = format("%s-%s", var.bucket_name, var.env)
   force_destroy = true
 }
 
@@ -48,7 +48,7 @@ resource "aws_s3_object" "index" {
   bucket       = aws_s3_bucket.mybucket.bucket
   key          = "index.html"
   source       = "website-files/index.html"
-  content_type = "text/html" 
+  content_type = "text/html"
 }
 
 #Step 6: Configure an error document
@@ -56,5 +56,5 @@ resource "aws_s3_object" "error" {
   bucket       = aws_s3_bucket.mybucket.bucket
   key          = "error.html"
   source       = "website-files/error.html"
-  content_type = "text/html" 
+  content_type = "text/html"
 }
