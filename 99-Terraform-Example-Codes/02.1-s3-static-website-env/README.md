@@ -84,3 +84,19 @@ terraform destroy -var-file=vars/dev.tfvars
 - **Variables:**
   - `bucket_name`: "venkatesh-s3-30032024"
   - `env`: "dev"
+
+
+
+## Reference Documents:
+
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/HostingWebsiteOnS3Setup.html
+
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
+
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_website_configuration
+
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block
+
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy
+
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object
