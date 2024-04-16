@@ -98,6 +98,8 @@
         - *for_each* for set creating iam user notes
     - 11-Terraform-local-values
     - 13-Terraform-Show
+    - 17-Terraform-Modules
+        - add some examples
 
 - #### Revise following
     - terraform dependency file ?
