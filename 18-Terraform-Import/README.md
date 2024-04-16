@@ -1,6 +1,6 @@
 # Terraform Import
 
-##  Terraform Import: Bring Existing Infrastructure Under IaC
+## Bringing your Existing Infrastructure Under IaC
 
 - **terraform import** command used to **import existing infrastructure into your Terraform state**.
 - **terraform import** allows you to **bring resources under Terraform management without having to recreate them**.
@@ -19,7 +19,7 @@
     }
     ```
 
-3. **Run the Import Command:** Once the resource is declared, you **run the `terraform import` command** followed by the resource type and the resource identifier. Terraform will then fetch the current state of the resource from the provider and import it into the Terraform state file (`terraform.tfstate`).
+3. **Run the Import Command:** Once the resource is declared, you **run the *`terraform import`* command followed by the resource type and the resource identifier**. Terraform will then fetch the current state of the resource from the provider and import it into the Terraform state file (`terraform.tfstate`).
 
     Example: To import an existing EC2 Instance
 
