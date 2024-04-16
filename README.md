@@ -82,7 +82,7 @@
 
 - ### [18-Terraform-Import](18-Terraform-Import) - Bring Existing Infrastructure Under IaC
 
-
+- ### [19-Terraform-Debug](19-Terraform-Debug) - Debugging Terraform
 
 
 
@@ -104,7 +104,7 @@
     - 18-Terraform-Import
         - add some examples
 
-        
+
 - #### Revise following
     - terraform dependency file ?
     - terraform lock file ?
