@@ -101,7 +101,10 @@
     - 13-Terraform-Show
     - 17-Terraform-Modules
         - add some examples
+    - 18-Terraform-Import
+        - add some examples
 
+        
 - #### Revise following
     - terraform dependency file ?
     - terraform lock file ?

@@ -29,6 +29,12 @@
     ```
     This command tells Terraform to import the existing EC2 instance with the ID `i-1234567890abcdef0` and associate it with the resource named `aws_instance.example` in your Terraform configuration.
 
+### Important Note: 
+
+- After importing a resource, **Terraform will not automatically create or manage its configuration**. 
+- You'll still need to **review the generated configuration and make any necessary code updates to match your desired state**.
+- Example as stated in step 4 below
+
 4. **Update the Configuration:** After importing the resource, you need to update the Terraform configuration file to provide the necessary configuration details, such as resource attributes and dependencies, so that Terraform can manage the resource going forward.
 
     Example: Update the configuration
