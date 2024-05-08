@@ -84,6 +84,7 @@
 
 - ### [19-Terraform-Debug](19-Terraform-Debug) - Debugging Terraform
 
+- ### [20-Terraform-Exam-Cheat-Sheet](20-Terraform-Exam-Cheat-Sheet) - Cheat Sheet for Terraform Certification
 
 
 - #### Pending Notes
