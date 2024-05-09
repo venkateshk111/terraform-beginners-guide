@@ -117,6 +117,40 @@
         - Security Group to allow port 80, 443
     - Use Terraform variables where ever possible.
 
+
+## HashiCorp Certified: Terraform Associate (003)
+
+- If you are planning to get certified, Please find below Online course that can help you to prepare and clear the Exams
+
+- Choose any course or author you feel connected and follow along to complete entire playlist or the course to master terraform
+
+- Please note below mentioned course list is collected based on various positive reviews across social media platforms
+
+- I personally have not gone through every video, but have referenced different sections based on the topic I wanted to understand. 
+
+- Thanks to all the wonderful authors out there who have put lot of efforts in making these videos on terraform.
+
+
+### Youtube Terraform videos to get started
+1. Terraform Zero to Hero by Abhishek Veeramalla
+    - [Terraform Zero to Hero](https://youtube.com/playlist?list=PLdpzxOOAlwvI0O4PeKVV1-yJoX2AqIWuf&si=6kClUR6Pmm4nFaqO)
+2. FreeCodeCamp.org and Andrew Brown
+    - [HashiCorp Terraform Associate Certification Course (003) - Pass the Exam!](https://youtu.be/SPcwo0Gq9T8?si=yOpMHV4uMc6XMDxk)
+    - [Terraform Beginner Bootcamp](https://youtu.be/eiox8xFsCpE?si=SiR0J_2hoEnkCiGi)
+    - [Terraform Crash Course - Automate your AWS cloud infrastructure](https://youtu.be/SLB_c_ayRMo?si=d6AlE6xvnwX8ROie)
+3. Terraform Course by Derek Morgan
+    - [Terraform Foundations Course](https://youtube.com/playlist?list=PL5_Rrj9tYQAlgX9bTzlTN0WzU67ZeoSi_&si=PtpUZjWeWeLcJz4-)
+4. Terraform Course by Sid
+    - [Complete Terraform Course - From BEGINNER to PRO!](https://youtu.be/7xngnjfIlK4?si=7AzbLsVERfge3W0i)
+
+
+### Udemy Terraform Courses and Practice Tests 
+
+1. [HashiCorp Certified: Terraform Associate -50 Practical Demos](https://www.udemy.com/course/hashicorp-certified-terraform-associate-step-by-step/) - by [Kalyan Reddy Daida](https://www.linkedin.com/in/kalyan-reddy-daida/) (my terraform learning was based on this course)
+
+2. [HashiCorp Certified: Terraform Associate Practice Exam 2024](https://www.udemy.com/course/terraform-associate-practice-exam/) - by [Bryan Krausen](https://www.linkedin.com/in/btkrausen/)
+
+
 ## Important Links
 - Website: https://www.terraform.io
 - Forums: [HashiCorp Discuss](https://discuss.hashicorp.com/c/terraform-core)
