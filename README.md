@@ -106,9 +106,9 @@
 
 ## Project Work
 
-1. [Static Website Using S3](99-Terraform-Example-Codes/02-s3-static-website/README.md)
+1. [Static Website Using S3](99-Terraform-Example-Codes/02-s3-static-website)
 
-2. [Static Website Using S3 diff env](99-Terraform-Example-Codes/02.1-s3-static-website-env/README.md)
+2. [Static Website Using S3 diff env](99-Terraform-Example-Codes/02.1-s3-static-website-env)
 
 3. Create Simple Web Server (TBD)
     - AWS Components
