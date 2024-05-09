@@ -131,7 +131,7 @@
 - Thanks to all the wonderful authors out there who have put lot of efforts in making these videos on terraform.
 
 
-### Youtube Terraform videos to get started
+### Youtube Terraform videos to Get Started
 1. Terraform Zero to Hero by Abhishek Veeramalla
     - [Terraform Zero to Hero](https://youtube.com/playlist?list=PLdpzxOOAlwvI0O4PeKVV1-yJoX2AqIWuf&si=6kClUR6Pmm4nFaqO)
 2. FreeCodeCamp.org and Andrew Brown
