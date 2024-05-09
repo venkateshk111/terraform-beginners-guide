@@ -104,19 +104,18 @@
         - add some examples
 
 
-- #### Revise following
-    - terraform dependency file ?
-    - terraform lock file ?
-
 ## Project Work
 
-1.  Create Simple Web Server
+1. [Static Website Using S3](99-Terraform-Example-Codes/02-s3-static-website/README.md)
+
+2. [Static Website Using S3 diff env](99-Terraform-Example-Codes/02.1-s3-static-website-env/README.md)
+
+3. Create Simple Web Server (TBD)
     - AWS Components
         - EC2
         - Security Group to allow port 22
         - Security Group to allow port 80, 443
     - Use Terraform variables where ever possible.
-
 
 ## HashiCorp Certified: Terraform Associate (003)
 
