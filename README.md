@@ -145,7 +145,7 @@
 
 ### Udemy Terraform Courses and Practice Tests 
 
-1. [HashiCorp Certified: Terraform Associate -50 Practical Demos](https://www.udemy.com/course/hashicorp-certified-terraform-associate-step-by-step/) - by [Kalyan Reddy Daida](https://www.linkedin.com/in/kalyan-reddy-daida/) (my terraform learning was based on this course)
+1. [HashiCorp Certified: Terraform Associate -50 Practical Demos](https://www.udemy.com/course/hashicorp-certified-terraform-associate-step-by-step/) - by [Kalyan Reddy Daida](https://www.linkedin.com/in/kalyan-reddy-daida/)
 
 2. [HashiCorp Certified: Terraform Associate Practice Exam 2024](https://www.udemy.com/course/terraform-associate-practice-exam/) - by [Bryan Krausen](https://www.linkedin.com/in/btkrausen/)
 
