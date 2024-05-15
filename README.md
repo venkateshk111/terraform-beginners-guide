@@ -147,7 +147,15 @@
 
 1. [HashiCorp Certified: Terraform Associate -50 Practical Demos](https://www.udemy.com/course/hashicorp-certified-terraform-associate-step-by-step/) - by [Kalyan Reddy Daida](https://www.linkedin.com/in/kalyan-reddy-daida/)
 
-2. [HashiCorp Certified: Terraform Associate Practice Exam 2024](https://www.udemy.com/course/terraform-associate-practice-exam/) - by [Bryan Krausen](https://www.linkedin.com/in/btkrausen/)
+2. [HashiCorp Certified: Terraform Associate 2024](https://www.udemy.com/course/terraform-beginner-to-advanced/) - by [Zeal Vora](https://www.linkedin.com/in/zealvora/)
+
+3. [Terraform for the Absolute Beginners with Labs](https://www.udemy.com/course/terraform-for-the-absolute-beginners) - by [Mumshad Mannambeth](https://linkedin.com/in/mumshad-mannambeth-29987029/)
+
+4. [Complete Terraform Course - Beginner to Advanced]() - by [Nana Janashia](https://linkedin.com/in/nana-janashia)
+
+5. [HashiCorp Certified: Terraform Associate - Hands-On Labs](https://www.udemy.com/course/terraform-hands-on-labs/) - by [Bryan Krausen](https://www.linkedin.com/in/btkrausen/)
+
+6. [HashiCorp Certified: Terraform Associate Practice Exam 2024](https://www.udemy.com/course/terraform-associate-practice-exam/) - by [Bryan Krausen](https://www.linkedin.com/in/btkrausen/)
 
 
 ## Important Links
