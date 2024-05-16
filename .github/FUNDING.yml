@@ -12,6 +12,6 @@
 # buy_me_a_coffee: # Replace with a single Buy Me a Coffee username
 # custom: # Replace with up to 4 custom sponsorship URLs e.g., ['link1', 'link2']
 
-github: venkateshk111
+# github: venkateshk111
 buy_me_a_coffee: venkatesh111
-custom: ["https://www.paypal.me/venkateshk111"]
+paypal: ["https://www.paypal.me/venkateshk111"]
