@@ -158,6 +158,14 @@
 6. [HashiCorp Certified: Terraform Associate 2024](https://www.udemy.com/course/terraform-beginner-to-advanced/) - by [Zeal Vora](https://www.linkedin.com/in/zealvora/)
 
 
+## My Terraform Certification and ScoreCard
+
+![My Terraform Certificate](https://www.credly.com/badges/4071e204-c2c6-448d-975c-33b57b21a5b4/public_url)
+
+- My Terraform ScoreCard
+
+    ![My Terraform Score](./imgs/02-tf-scorecard.png)
+
 ## Important Links
 - Website: https://www.terraform.io
 - Forums: [HashiCorp Discuss](https://discuss.hashicorp.com/c/terraform-core)
