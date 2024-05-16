@@ -160,11 +160,15 @@
 
 ## My Terraform Certification and ScoreCard
 
-![My Terraform Certificate](https://www.credly.com/badges/4071e204-c2c6-448d-975c-33b57b21a5b4/public_url)
+- My Terraform Certificate
+
+    <a href="https://www.credly.com/badges/4071e204-c2c6-448d-975c-33b57b21a5b4/public_url" target="_blank">
+    <img src="https://images.credly.com/images/85b9cfc4-257a-4742-878c-4f7ab4a2631b/image.png" alt="My Badge" width="250" height="250">
+    </a>
 
 - My Terraform ScoreCard
 
-    ![My Terraform Score](./imgs/02-tf-scorecard.png)
+    ![My Score](./imgs/02-tf-scorecard.png)
 
 ## Important Links
 - Website: https://www.terraform.io
