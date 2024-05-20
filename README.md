@@ -84,6 +84,15 @@
 
 - ### [20-Terraform-Exam-Cheat-Sheet](20-Terraform-Exam-Cheat-Sheet) - Cheat Sheet for Terraform Certification
 
+- ### [99-Terraform-Example-Codes](99-Terraform-Example-Codes) - Sample Terraform codes for more practice
+
+<!--
+    - [Simple EC2 Creation](99-Terraform-Example-Codes/01-ec2-creation/)
+    - [Simple EC2 Creation Using Data Blocks](99-Terraform-Example-Codes/01.1-ec2-creation-data-blocks/)
+    - [S3 Static Website Hosting](99-Terraform-Example-Codes/02-s3-static-website/)
+    - [S3 Static Website Hosting multi Env](99-Terraform-Example-Codes/02.1-s3-static-website-env/)
+
+-->
 
 - #### Pending Notes
     - 02-Terraform-Configuration
@@ -103,14 +112,16 @@
     - 18-Terraform-Import
         - add some examples
 
+## Project Work and Example Codes
 
-## Project Work
+1. [Simple EC2 Creation](99-Terraform-Example-Codes/01-ec2-creation/)
+2. [Simple EC2 Creation Using Data Blocks](99-Terraform-Example-Codes/01.1-ec2-creation-data-blocks/)
 
-1. [Static Website Using S3](99-Terraform-Example-Codes/02-s3-static-website)
+3. [Static Website Using S3](99-Terraform-Example-Codes/02-s3-static-website)
 
-2. [Static Website Using S3 diff env](99-Terraform-Example-Codes/02.1-s3-static-website-env)
+4. [Static Website Using S3 Multi Env](99-Terraform-Example-Codes/02.1-s3-static-website-env)
 
-3. Create Simple Web Server (TBD)
+5. Create Simple Web Server (TBD)
     - AWS Components
         - EC2
         - Security Group to allow port 22
@@ -197,6 +208,7 @@
 <!-- <img alt="Terraform" src="https://www.datocms-assets.com/2885/1629941242-logo-terraform-main.svg" width="600px"> -->
 
 
+#### Below section is for my notes, please ignore.
 
 <details> 
 <summary> <h3><a href="04-Terraform-Top-Level-Blocks/README.md">04-Terraform-Top-Level-Blocks</a></h3> </summary>
