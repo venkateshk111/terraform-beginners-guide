@@ -208,6 +208,19 @@
 <!-- <img alt="Terraform" src="https://www.datocms-assets.com/2885/1629941242-logo-terraform-main.svg" width="600px"> -->
 
 
+## Git Star History
+
+[![GitHub stars](https://img.shields.io/github/stars/venkateshk111/terraform-beginners-guide?style=social)](https://github.com/venkateshk111/terraform-beginners-guide/stargazers)
+
+[![Star History Chart](https://api.star-history.com/svg?repos=venkateshk111/terraform-beginners-guide&type=Date)](https://star-history.com/#venkateshk111/terraform-beginners-guide&Date)
+
+
+
+<!-- - Star history graph: https://starchart.cc/venkateshk111/terraform-beginners-guide -->
+
+<!-- ## Stargazers over time
+[![Stargazers over time](https://starchart.cc/venkateshk111/terraform-beginners-guide.svg?variant=adaptive)](https://starchart.cc/venkateshk111/terraform-beginners-guide) -->
+
 #### Below section is for my notes, please ignore.
 
 <details> 
