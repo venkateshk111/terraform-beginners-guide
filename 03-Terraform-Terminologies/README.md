@@ -1,5 +1,103 @@
 # Terraform Terminologies
 
+## Terraform Blocks and Labels
+
+### Blocks:
+
+- Terraform configuration is written using **blocks**. A block is a container that holds the configuration for something, like a provider, a resource or a variable.
+
+- Block Syntax
+    ```hcl
+    block_type "label1" "label2" {
+        argument1 = "value1"
+        argument2 = "value2"
+    }
+    ```
+
+- **Example:**
+    ```hcl
+    resource "aws_instance" "example" {
+        ami           = "ami-0c55b159cbfafe1f0"
+        instance_type = "t2.micro"
+    }
+    ```
+    Here, a block has three parts:
+    - **Block type:** `resource`
+    - **Labels:** `"aws_instance"` and `"example"`
+    - **Body:** everything inside the curly braces `{ }`
+
+- **Labels** are the names that come after the block type. The number of labels depends on the block type.
+
+    | Block type | Number of labels | Example |
+    |------------|------------------|---------|
+    | terraform | 0 | `terraform { }` |
+    | locals | 0 | `locals { }` |
+    | provider | 1 | `provider "aws" { }` |
+    | variable | 1 | `variable "aws_region" { }` |
+    | output | 1 | `output "instance_id" { }` |
+    | module | 1 | `module "vpc" { }` |
+    | resource | 2 | `resource "aws_instance" "example" { }` |
+    | data | 2 | `data "aws_ami" "latest" { }` |
+
+- **Nested blocks:** A block can also have another block inside it. For example, **filter** inside a data source, **lifecycle** inside a resource, or **ingress** inside a security group.
+    ```hcl
+    resource "aws_security_group" "web" {
+        name = "web-sg"
+
+        ingress {
+            from_port   = 80
+            to_port     = 80
+            protocol    = "tcp"
+            cidr_blocks = ["0.0.0.0/0"]
+        }
+    }
+    ```
+
+- **Block vs Argument:** An argument is a single `name = value` line. A block has curly braces and can contain arguments and other blocks.
+
+- **Comments:** Use `#` or `//` for a single line comment, and `/* ... */` for multiple lines.
+
+## Terraform Block
+
+- The **terraform** block is a special block used to configure **Terraform itself**, not the infrastructure.
+- It is used to set the Terraform version, the providers to download, and where to store the state file.
+
+- **Example:**
+    ```hcl
+    terraform {
+        required_version = ">= 1.5.0"
+
+        required_providers {
+            aws = {
+                source  = "hashicorp/aws"
+                version = "~> 6.0"
+            }
+        }
+
+        backend "s3" {
+            bucket = "my-terraform-state-bucket"
+            key    = "dev/terraform.tfstate"
+            region = "us-east-1"
+        }
+    }
+    ```
+    Here,
+    - **required_version** tells which Terraform CLI versions can run this configuration.
+    - **required_providers** tells which providers to download, and which versions.
+    - **backend** tells where Terraform should store the state file.
+
+- **Version constraints:**
+
+    | Operator | Meaning | Example |
+    |----------|---------|---------|
+    | `=` | Exactly this version | `= 1.5.0` |
+    | `!=` | Any version except this one | `!= 1.5.0` |
+    | `>`, `>=` | Greater than, or greater than or equal | `>= 1.5.0` |
+    | `<`, `<=` | Less than, or less than or equal | `< 2.0.0` |
+    | `~>` | Allows only the last number to increase | `~> 6.0` means 6.x, but not 7.0 |
+
+- **Important Note:** Variables and other references are **not allowed** inside the terraform block. You have to use fixed values, so you cannot write `bucket = var.bucket_name` in the backend block.
+
 ## Terraform Provider, Resource, Data Sources, and Variables
 
 ### Provider:
@@ -357,10 +455,229 @@
     ```
     Note that the block is called **locals** but we refer to the values using **local.** (singular).
 
+## Terraform Expressions and References
+
+### Expressions:
+
+- An expression is anything on the **right side of an argument**. It can be a simple value, or a reference to something else, or a calculation.
+
+- **Simple values:**
+    ```hcl
+    name    = "web-server"          # string
+    count   = 3                     # number
+    enabled = true                  # bool
+    azs     = ["us-east-1a", "us-east-1b"]   # list
+    tags    = { Env = "dev" }       # map
+    ```
+
+### References:
+
+- References are used to **use the value of something that is defined somewhere else** in the configuration.
+
+    | What you refer to | Reference format | Example |
+    |-------------------|------------------|---------|
+    | Variable | `var.<name>` | `var.aws_region` |
+    | Local value | `local.<name>` | `local.common_tags` |
+    | Resource | `<type>.<name>.<attribute>` | `aws_instance.example.id` |
+    | Data source | `data.<type>.<name>.<attribute>` | `data.aws_ami.latest.id` |
+    | Module output | `module.<name>.<output>` | `module.vpc.vpc_id` |
+    | Current count index | `count.index` | `count.index` |
+    | Current for_each item | `each.key`, `each.value` | `each.key` |
+
+- When a resource is created using **count** or **for_each**, we pick a specific one using an index or a key.
+    ```hcl
+    aws_instance.example[0].id          # when count is used
+    aws_instance.example["web"].id      # when for_each is used
+    ```
+
+- When we use a reference, Terraform also understands the dependency, and creates things in the right order (the implicit dependency we discussed in meta-arguments).
+
+### String Interpolation:
+
+- Use `${ }` to put a value inside a string.
+    ```hcl
+    tags = {
+        Name = "${var.environment}-web-server"
+    }
+    ```
+    If environment is **dev**, the name becomes **dev-web-server**.
+
+### Conditional Expression:
+
+- Format: `condition ? value_if_true : value_if_false`
+    ```hcl
+    instance_type = var.environment == "prod" ? "t3.large" : "t2.micro"
+    ```
+    Here, prod gets a t3.large, and every other environment gets a t2.micro.
+
+### Functions:
+
+- Terraform has many **built-in functions** to work with values. You cannot create your own functions.
+- Format: `function_name(argument1, argument2)`
+
+    | Function | What it does | Example |
+    |----------|--------------|---------|
+    | `length` | Number of items in a list or map | `length(var.azs)` |
+    | `join` | Joins list items into a string | `join(",", ["a", "b"])` gives `"a,b"` |
+    | `upper` | Converts to upper case | `upper("dev")` gives `"DEV"` |
+    | `toset` | Converts a list to a set | `toset(["web", "app"])` |
+    | `lookup` | Gets a value from a map by key | `lookup(var.ami_map, "us-east-1")` |
+    | `merge` | Combines multiple maps | `merge(local.common_tags, { Name = "web" })` |
+
+- You can try any function using the `terraform console` command.
+
+### For Expression:
+
+- A for expression is used to **create a new list or map from an existing one**.
+    ```hcl
+    variable "names" {
+        type    = list(string)
+        default = ["web", "app", "db"]
+    }
+
+    locals {
+        upper_names = [for n in var.names : upper(n)]
+    }
+    ```
+    Here, **upper_names** becomes `["WEB", "APP", "DB"]`.
+
+### Splat Expression:
+
+- The splat expression `[*]` is a shortcut to get one attribute from **all** the resources created by count.
+    ```hcl
+    output "all_instance_ids" {
+        value = aws_instance.example[*].id
+    }
+    ```
+
+## Terraform Modules
+
+- A module is **a group of Terraform files kept together in a folder**. It is used to package a set of resources so that you can reuse them.
+- Every Terraform configuration is already a module. The folder where you run terraform commands is called the **root module**. The modules that the root module calls are called **child modules**.
+- A module takes **variables as inputs** and gives **outputs** back.
+
+- Module Syntax
+    ```hcl
+    module "name" {
+        source = "path or location of the module"
+        input1 = "value1"
+        input2 = "value2"
+    }
+    ```
+
+- **Example:**
+    ```hcl
+    module "web_server" {
+        source        = "./modules/ec2"
+        instance_type = "t2.micro"
+    }
+
+    output "web_server_id" {
+        value = module.web_server.instance_id
+    }
+    ```
+    Here, **web_server** is the module name, and **source** points to the folder where the module code is. **instance_type** is an input variable of that module. To use an output of the module we use the **module.** prefix.
+
+- The **source** can be a local path, a module from the Terraform Registry, or a Git repository.
+
+- Modules help us to avoid repeating code, keep a standard way of creating things, and keep large projects organized.
+
+- Note: We will see modules in detail in a dedicated section.
+
+## Terraform Backend and State
+
+### State:
+
+- Terraform keeps a record of all the resources it has created and manages. This record is called the **state**, and it is stored in a **state file** (`terraform.tfstate`).
+- The state file maps the resources in your configuration to the real resources in AWS.
+- When you run `terraform plan`, Terraform compares your **configuration**, the **state file** and the **real infrastructure** to decide what needs to change.
+- Do not edit the state file manually, and do not delete it. If it is lost, Terraform will not know about the resources it created.
+- The state file can contain sensitive values in plain text, so keep it in a secure place.
+
+### Drift:
+
+- Drift is when the **real infrastructure is different from what Terraform expects**, usually because someone changed a resource manually from the AWS console.
+- `terraform plan` detects the drift and shows what it will change to bring the resource back to the configuration.
+
+### Backend:
+
+- A backend defines **where the state file is stored** and how Terraform operations run.
+- By default, Terraform uses the **local** backend, which stores the state file in the project folder.
+- For team work, the state is stored in a **remote backend** like an **S3 bucket**, so that everyone uses the same state.
+- Backend is configured inside the **terraform** block.
+
+- **Example:**
+    ```hcl
+    terraform {
+        backend "s3" {
+            bucket       = "my-terraform-state-bucket"
+            key          = "dev/terraform.tfstate"
+            region       = "us-east-1"
+            encrypt      = true
+            use_lockfile = true
+        }
+    }
+    ```
+    Here, the state file is stored in the S3 bucket **my-terraform-state-bucket** under the path **dev/terraform.tfstate**. 
+
+- **State locking:** When someone is running `terraform apply`, the state is locked so that two people cannot change it at the same time. With S3, locking is enabled using `use_lockfile = true` in newer Terraform versions. Older setups use a DynamoDB table for locking with the `dynamodb_table` argument.
+
+- After adding or changing a backend, run `terraform init` again.
+
+- Note: We will see state and backend in detail in a dedicated section.
+
+## Other Important Terms
+
+### Terraform Registry:
+
+- The Terraform Registry is the **public library of providers and modules**, available at `registry.terraform.io`.
+- When you write `source = "hashicorp/aws"`, Terraform downloads the aws provider from the Registry.
+
+### Dependency Lock File:
+
+- The file `.terraform.lock.hcl` is created when you run `terraform init`.
+- It records the **exact provider versions** (and their checksums) that were selected, so that everyone in the team and the pipelines use the same versions.
+- Commit this file to Git. To upgrade the provider versions later, run `terraform init -upgrade`.
+
+### Workspaces:
+
+- Workspaces allow you to keep **multiple state files for the same configuration**. For example, one for dev and one for test.
+- Every configuration starts with one workspace called **default**.
+- Common commands:
+    ```
+    terraform workspace list
+    terraform workspace new dev
+    terraform workspace select dev
+    ```
+- You can use the current workspace name in the code with `terraform.workspace`.
+
+### Provisioners:
+
+- Provisioners are used to **run a script or a command** on the local machine or on a remote resource after the resource is created.
+- Common types are **local-exec** (runs on the machine where Terraform is running), **remote-exec** (runs on the remote resource) and **file** (copies files to the remote resource).
+
+- **Example:**
+    ```hcl
+    resource "aws_instance" "example" {
+        ami           = var.ami_id
+        instance_type = "t2.micro"
+
+        provisioner "local-exec" {
+            command = "echo ${self.private_ip} >> private_ips.txt"
+        }
+    }
+    ```
+    Here, after the instance is created, the private IP is saved to a file on the machine running Terraform.
+
+- **Important Note:** Provisioners should be used only as a **last resort**. Terraform does not track what a provisioner did, so it cannot plan or fix it later. Prefer other options like **user_data**, custom AMIs (Packer) or a configuration management tool like Ansible.
+
 ## Quick Summary
 
 | Term | What it is | AWS example |
 |------|------------|-------------|
+| Block | Container for configuration, made of block type, labels and body | `resource "aws_instance" "example" { }` |
+| Label | Name given after the block type | `"aws_instance"` and `"example"` |
+| Terraform block | Configures Terraform itself (version, providers, backend) | `terraform { required_version = ">= 1.5.0" }` |
 | Provider | Plugin that talks to the platform's API | `provider "aws"` |
 | Resource | Infrastructure that Terraform creates and manages | `aws_instance`, `aws_s3_bucket` |
 | Data Source | Read-only lookup of existing information | `data "aws_ami"` |
@@ -370,3 +687,12 @@
 | Meta-argument | Terraform-specific argument usable on any resource | `count`, `for_each`, `depends_on`, `provider`, `lifecycle` |
 | Output | Value printed or exposed after apply | `output "instance_id"` |
 | Local | Reusable named value inside the configuration | `local.common_tags` |
+| Expression | Anything on the right side of an argument (value, reference, function, condition) | `var.env == "prod" ? "t3.large" : "t2.micro"` |
+| Module | Group of Terraform files reused as a package | `module "web_server"` |
+| State | Record of the resources Terraform manages | `terraform.tfstate` |
+| Drift | Real infrastructure differs from the state or configuration | Security group edited in the AWS console |
+| Backend | Where the state file is stored | `backend "s3"` |
+| Registry | Public library of providers and modules | `registry.terraform.io` |
+| Lock file | Records the exact provider versions used | `.terraform.lock.hcl` |
+| Workspace | Separate state for the same configuration | `terraform workspace new dev` |
+| Provisioner | Runs a script after a resource is created (last resort) | `local-exec`, `remote-exec` |
