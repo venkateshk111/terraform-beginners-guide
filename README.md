@@ -7,13 +7,9 @@
 - ### [00-Terraform-Basics](00-Terraform-Basics) - Terraform Definitions and more
 - ### [01-Terraform-Installation](01-Terraform-Installation) - Install Terraform
 
-<!-- 
-
 - ### [02-Terraform-Configuration](01-Terraform-Configuration) - Configure Terraform
 
--->
-
-- ### [03-Terraform-Terminologies](03-Terraform-Terminologies)
+- ### [03-Terraform-Terminologies](03-Terraform-Terminologies) - Terraform Terminologies
 
     - **Provider** : Define the providers like AWS, Azure, GCP
     - **Resource** : Infrastructure Resources to be created, ex: VPC, S3, EC2
@@ -22,6 +18,27 @@
     - **Arguments** : Inputs
     - **Attributes** : Outputs
     - **Meta-Arguments** : Terraform specific Inputs ex: count, for_each,depends_on
+    - **Block** : Container for configuration, made of block type, labels and body, ex: resource "aws_instance" "example" { }
+    - **Labels** : Names given after the block type, ex: "aws_instance" and "example"
+    - **Terraform Block** : Configures Terraform itself, ex: required_version, required_providers, backend
+    - **Provider** : Define the providers like AWS, Azure, GCP
+    - **Resource** : Infrastructure Resources to be created, ex: VPC, S3, EC2
+    - **Data Sources** (optional) : Pull the data from the provider (read only)
+    - **Variable**: Give user option to enter the value for defined resources
+    - **Arguments** : Inputs
+    - **Attributes** : Values you can read from a resource, ex: id, arn, public_ip
+    - **Meta-Arguments** : Terraform specific Inputs ex: count, for_each, depends_on, provider, lifecycle
+    - **Outputs** : Print or expose values after apply
+    - **Locals** : Reusable named values inside the configuration
+    - **Expressions and References** : Values, references (var., local., data.), conditions, functions, for expressions
+    - **Modules** : Group of Terraform files reused as a package
+    - **State** : Record of the resources Terraform manages (terraform.tfstate)
+    - **Drift** : Real infrastructure is different from the state or configuration
+    - **Backend** : Where the state file is stored, ex: S3
+    - **Terraform Registry** : Public library of providers and modules
+    - **Dependency Lock File** : Records the exact provider versions used (.terraform.lock.hcl)
+    - **Workspaces** : Multiple state files for the same configuration
+    - **Provisioners** : Run scripts after a resource is created (last resort)
 
 - ### [04-Terraform-Top-Level-Blocks](04-Terraform-Top-Level-Blocks) - Terraform Top Level Blocks
     - **Terraform Block** (>0.13 version) or Terraform Settings Block or Terraform Configuration Block 
